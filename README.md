@@ -1,1 +1,0 @@
-skrypty-polsl.github.io
