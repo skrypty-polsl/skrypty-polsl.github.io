@@ -19,5 +19,47 @@ blockquote    {background-color: rgba(128,128,128,0.05);}
 {
     <span class="hljs-comment">//code goes here...</span>
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-}</code></pre></div></body>
+}</code></pre>
+
+
+
+<h1 id="wejściewyjście-konsoli-iostream">Wejście/wyjście konsoli - <code>&lt;iostream&gt;</code></h1>
+
+<p>Strumień wejściowy - <code>std::cin</code></p>
+
+<blockquote>
+  <p>Console INput <br>
+  użycie:</p>
+  
+  <pre class="prettyprint"><code class="language-C++ hljs cpp"><span class="hljs-keyword">int</span> a;
+<span class="hljs-keyword">char</span> b;
+<span class="hljs-keyword">float</span> c;
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; a &gt;&gt; b &gt;&gt; c;</code></pre>
+  
+  <p>wczytujemy ZE strumienia DO zmiennych więc <code>strumien &gt;&gt; zmienna</code> <br>
+  Jeżeli w buforze nie znajduje się wystarczająco dużo znaków, program zaczeka na &gt; podanie danych przez użytkownika.</p>
+</blockquote>
+
+<p>Strumień wyjściowy - <code>std::cout</code></p>
+
+<blockquote>
+  <p>Console OUTput <br>
+  użycie:</p>
+  
+  <pre class="prettyprint"><code class="language-C++ hljs cpp"><span class="hljs-keyword">int</span> a = <span class="hljs-number">5</span>;
+<span class="hljs-keyword">char</span> b = <span class="hljs-string">'b'</span>;
+<span class="hljs-keyword">float</span> c = <span class="hljs-number">3.14</span>;
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"a= "</span> &lt;&lt; a &lt;&lt; <span class="hljs-string">",b= "</span> &lt;&lt; b &lt;&lt; <span class="hljs-string">",c= "</span> &lt;&lt; c; </code></pre>
+  
+  <p>wypisujemy ZE zmiennej DO strumienia więc <code>zmienna &lt;&lt; strumien</code></p>
+</blockquote>
+
+<p>Nowa linia - <code>std::endl</code></p>
+
+<blockquote>
+  <p>END Line <br>
+  użycie:</p>
+  
+  <pre class="prettyprint"><code class="language-C++ hljs cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Hello"</span> &lt;&lt; <span class="hljs-built_in">std</span>::endl &lt;&lt; <span class="hljs-string">"world!"</span> &lt;&lt; <span class="hljs-built_in">std</span>::endl;</code></pre>
+</blockquote></div></body>
 </html>
