@@ -353,13 +353,13 @@ plik &lt;&lt; <span class="hljs-string">"hello world!"</span> &lt;&lt; <span cla
 
 <h1 id="funkcje-związane-z-czasem-ctime">Funkcje związane z czasem - <code>&lt;ctime&gt;</code></h1>
 
-<ul>
-<li><code>time(0)</code> - zwraca obecny czas jako liczbę sekund od 1 stycznia 1970, godziny 00:00</li>
-</ul>
+<p><code>time(0)</code> - zwraca obecny czas jako liczbę sekund od 1 stycznia 1970, godziny 00:00</p>
 
 <h1 id="manipulacja-wewy-iomanip">Manipulacja we/wy - <code>&lt;iomanip&gt;</code></h1>
 
-<p>podstawa systemu liczbowego - <code>std::setbase</code></p>
+
+
+<h2 id="podstawa-systemu-liczbowego-stdsetbase">Podstawa systemu liczbowego - <code>std::setbase</code></h2>
 
 <blockquote>
   <p>użycie:</p>
@@ -378,7 +378,9 @@ plik &lt;&lt; <span class="hljs-string">"hello world!"</span> &lt;&lt; <span cla
   <p>Możliwe argumenty to 8, 10 i 16</p>
 </blockquote>
 
-<p>znak wiodący - <code>std::setfill</code></p>
+
+
+<h2 id="znak-wiodący-stdsetfill">Znak wiodący - <code>std::setfill</code></h2>
 
 <blockquote>
   <p>Ma zastosowanie tylko w połączeniu z <code>std::setw</code>. Ustawia znak wiodący, użyty jeżeli liczba ma mniej cyfr niż argument przekazany <code>std::setw</code>. <br>
@@ -392,7 +394,9 @@ plik &lt;&lt; <span class="hljs-string">"hello world!"</span> &lt;&lt; <span cla
   <pre class="prettyprint"><code class=" hljs lasso"><span class="hljs-attribute">...</span><span class="hljs-attribute">...</span><span class="hljs-number">.128</span></code></pre>
 </blockquote>
 
-<p>stała szerokość - <code>std::setw</code></p>
+
+
+<h2 id="stała-szerokość-stdsetw">Stała szerokość - <code>std::setw</code></h2>
 
 <blockquote>
   <p>Ustawia szerokość linii wypisanej na wyjście. Jeżeli wypisana liczba jest zbyt krótka przed nią pojawi się odpowiednia ilość spacji, lub znaku przekazanego <code>std::setfill</code> <br>
@@ -406,9 +410,36 @@ plik &lt;&lt; <span class="hljs-string">"hello world!"</span> &lt;&lt; <span cla
   <pre class="prettyprint"><code class=" hljs lasso"><span class="hljs-attribute">...</span><span class="hljs-attribute">...</span><span class="hljs-number">.128</span></code></pre>
 </blockquote>
 
+
+
+<h2 id="miejsca-po-przecinku-stdsetprecision">Miejsca po przecinku - <code>std::setprecision</code></h2>
+
+<blockquote>
+  <p>Ustawia ilość miejsc po przecinku dla liczb zmiennoprzecinkowych. <br>
+  użycie: </p>
+  
+  <pre class="prettyprint"><code class="language-C++ hljs cpp"><span class="hljs-keyword">double</span> f=<span class="hljs-number">3.14159</span>;
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">std</span>::setprecision(<span class="hljs-number">2</span>) &lt;&lt; f &lt;&lt; <span class="hljs-built_in">std</span>::endl;
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">std</span>::setprecision(<span class="hljs-number">5</span>) &lt;&lt; f &lt;&lt; <span class="hljs-built_in">std</span>::endl;
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">std</span>::setprecision(<span class="hljs-number">9</span>) &lt;&lt; f &lt;&lt; <span class="hljs-built_in">std</span>::endl;
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">std</span>::fixed;
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">std</span>::setprecision(<span class="hljs-number">2</span>) &lt;&lt; f &lt;&lt; <span class="hljs-built_in">std</span>::endl;
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">std</span>::setprecision(<span class="hljs-number">5</span>) &lt;&lt; f &lt;&lt; <span class="hljs-built_in">std</span>::endl;
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">std</span>::setprecision(<span class="hljs-number">9</span>) &lt;&lt; f &lt;&lt; <span class="hljs-built_in">std</span>::endl;</code></pre>
+  
+  <p>efekt:</p>
+  
+  <pre class="prettyprint"><code class=" hljs ">3.1
+3.1415
+3.14159
+3.14
+3.14159
+3.141590000</code></pre>
+</blockquote>
+
 <hr>
 
 <blockquote>
-  <p>last update: 2017/1/29 - 15:06</p>
+  <p>last update: 2017/1/29 - 15:12</p>
 </blockquote></div></body>
 </html>
