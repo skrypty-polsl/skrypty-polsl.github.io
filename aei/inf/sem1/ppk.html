@@ -75,6 +75,48 @@ Zmienna może mieć kilka deklaracji ale tylko jedną definicję!</p>
 <li>127 - znak(klawisz) delete</li>
 </ul>
 
+
+
+<h1 id="wskaźniki-i-dynamiczne-zarządzanie-pamięcią">Wskaźniki i dynamiczne zarządzanie pamięcią</h1>
+
+
+
+<h2 id="wskaźniki">Wskaźniki</h2>
+
+<p><em>Wskaźnik</em> to zmienna która zamiast wartości przechowuje adres w pamięci innej zmiennej.</p>
+
+<p>Wskaźniki deklarujemy:  <br>
+<code>&lt;typ&gt; *&lt;identyfikator&gt;;</code> lub <code>&lt;typ&gt; *&lt;identyfikator&gt;[];</code> <br>
+a definiujemy: <br>
+<code>&lt;typ&gt; *&lt;identyfikator&gt;=&lt;adres&gt;</code> lub <code>&lt;typ&gt; *&lt;identyfikator&gt;=&lt;adres&gt;</code> <br>
+gdzie <code>&lt;adres&gt;</code> może być: numerem komórki w pamięci, słowem kluczowym <code>nullptr</code>, identyfikatorem już istniejącego wskaźnika lub nazwą istniejącej zmiennej poprzedzoną znakiem <code>&amp;</code>.</p>
+
+<p>Wskaźnika można też użyć do utworzenia nowej zmiennej słowem kluczowym <code>new</code>: <br>
+<code>&lt;typ&gt; *&lt;identyfikator&gt;=new &lt;typ&gt;;</code>. <br>
+Należy zawsze pamiętać o usunięciu takiej zmiennej, gdy nie jest dłużej potrzebna słowem kluczowym <code>delete</code>: <br>
+<code>delete &lt;identyfkator&gt;;</code> <br>
+Nie usunięcie zmiennej dynamicznej prowadzi do <em>wycieku pamięci</em>.</p>
+
+<p>Przy korzystaniu ze wskaźników warto pamiętać o tym, że</p>
+
+
+
+<pre class="prettyprint"><code class="language-C++ hljs cpp"><span class="hljs-keyword">int</span> a = <span class="hljs-number">5</span>
+<span class="hljs-keyword">int</span> *wsk = &amp;a;
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; wsk;</code></pre>
+
+<p>wypisze na ekran adres zmiennej <code>a</code> a nie jej zawartość, a</p>
+
+<pre class="prettyprint"><code class="language-C++ hljs perl"><span class="hljs-keyword">int</span> a = <span class="hljs-number">5</span>
+<span class="hljs-keyword">int</span> <span class="hljs-variable">*wsk</span> = &amp;a;
+std::cout &lt;&lt; <span class="hljs-variable">*wsk</span>;</code></pre>
+
+<p>wypisze na ekran zawartość zmiennej <code>a</code>.</p>
+
+<h2 id="struktury">Struktury</h2>
+
+
+
 <h1 id="instrukcje-sterujące">Instrukcje sterujące</h1>
 
 
@@ -440,6 +482,6 @@ plik &lt;&lt; <span class="hljs-string">"hello world!"</span> &lt;&lt; <span cla
 <hr>
 
 <blockquote>
-  <p>last update: 2017/1/29 - 15:12</p>
+  <p>last update: 2017/1/29 - 15:27</p>
 </blockquote></div></body>
 </html>
