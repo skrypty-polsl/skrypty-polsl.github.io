@@ -30,6 +30,31 @@ Można po bloku <code>#include</code> wydać dyrektywę <code>using namespace st
 
 
 
+<h1 id="podstawowe-typy-danych">Podstawowe typy danych</h1>
+
+<p>Deklaracja zmiennej: <br>
+<code>&lt;typ&gt; &lt;identyfikator&gt;;</code> lub <code>&lt;typ&gt; &lt;identyfikator&gt;[&lt;rozmiar&gt;];</code> <br>
+Definicja zmiennej; <br>
+<code>&lt;typ&gt; &lt;identyfikator&gt; = &lt;wartość&gt;;</code> lub <code>&lt;typ&gt; &lt;identyfikator&gt;[&lt;rozmiar&gt;] = &lt;wartość&gt;;</code> <br>
+Zmienna może mieć kilka deklaracji ale tylko jedną definicję! <br>
+Typy:</p>
+
+<ul>
+<li><code>int</code> - zmienna całkowitoliczbowa o zakresie wartości od -2147483648 do 2147483647</li>
+<li><code>double</code> - zmienna zmiennoprzecinkowa o zakresie wartości od <script type="math/tex" id="MathJax-Element-295">1,7\cdot10^{-308}</script> do <script type="math/tex" id="MathJax-Element-296">1,7\cdot10^{308}</script>; lepiej jest używać <code>double</code> zamiast <code>float</code> ze względu na większą precyzję obliczeń.</li>
+<li><code>char</code> - zmienna znakowa; zawiera wartości z zakresu od 0 do 255; te wartości są zazwyczaj traktowane jako znaki w kodzie ASCII; zachować ostrożność przy porównywaniu/przypisywaniu!! wartość do takiej zmiennej wpisujemy w pojedyńczych apostrofach <code>char znak = 'b';</code></li>
+<li><code>bool</code> - zmienna true/false; może zawierać tylko 0 lub 1; przy porównywaniu lub przypisaniu można użyć słów kluczowych <code>true</code> i <code>false</code></li>
+<li><code>std::string</code> - klasa służąca do przechowywania łańcuchów znaków; wartość do niej wpisujemy w cudzysłowiu <code>std::string slowo = "klucz";</code>; pojedynczy znak można otrzymać na dwa sposoby: metodą <code>at()</code> - <code>std::cout &lt;&lt; slowo.at(2);</code> lub operatorem <code>[]</code> - <code>std::cout &lt;&lt; slowo[2];</code></li>
+</ul>
+
+<p>Tablice w C++ tworzymy dodając do nazwy zmiennej jej rozmiar w kwadratowych nawiasach.</p>
+
+<pre class="prettyprint"><code class="language-C++ hljs cs"><span class="hljs-keyword">int</span> tab[<span class="hljs-number">10</span>];</code></pre>
+
+
+
+<h1 id="instrukcje-sterujące">Instrukcje sterujące</h1>
+
 <h1 id="wejściewyjście-konsoli-iostream">Wejście/wyjście konsoli - <code>&lt;iostream&gt;</code></h1>
 
 
@@ -80,6 +105,8 @@ Można po bloku <code>#include</code> wydać dyrektywę <code>using namespace st
 
 <h1 id="wejściewyjście-plikowe-fstream">Wejście/wyjście plikowe - <code>&lt;fstream&gt;</code></h1>
 
+
+
 <h2 id="strumień-wewy-stdfstream">strumień we/wy - <code>std::fstream</code></h2>
 
 <blockquote>
@@ -106,6 +133,8 @@ plik &lt;&lt; <span class="hljs-string">"hello world!"</span> &lt;&lt; <span cla
   <pre class="prettyprint"><code class="language-C++ hljs perl">plik.<span class="hljs-keyword">close</span>();</code></pre>
 </blockquote>
 
+
+
 <h2 id="strumień-wejściowy-stdifstream">strumień wejściowy - <code>std::ifstream</code></h2>
 
 <blockquote>
@@ -120,6 +149,8 @@ plik &gt;&gt; <span class="hljs-literal">a</span><span class="hljs-comment">;</s
   
   <pre class="prettyprint"><code class="language-C++ hljs perl">plik.<span class="hljs-keyword">close</span>();</code></pre>
 </blockquote>
+
+
 
 <h2 id="strumień-wyjściowy-stdofstream">strumień wyjściowy - <code>std::ofstream</code></h2>
 
@@ -139,6 +170,6 @@ plik &lt;&lt; <span class="hljs-string">"hello world!"</span> &lt;&lt; <span cla
 <hr>
 
 <blockquote>
-  <p>last update: 2017/1/29 - 13:00</p>
+  <p>last update: 2017/1/29 - 13:29</p>
 </blockquote></div></body>
 </html>
