@@ -309,9 +309,106 @@ plik &lt;&lt; <span class="hljs-string">"hello world!"</span> &lt;&lt; <span cla
   <pre class="prettyprint"><code class="language-C++ hljs perl">plik.<span class="hljs-keyword">close</span>();</code></pre>
 </blockquote>
 
+
+
+<h1 id="funkcje-matematyczne-cmath">Funkcje matematyczne - <code>&lt;cmath&gt;</code></h1>
+
+
+
+<h2 id="funkcje-trygonometryczne">Funkcje trygonometryczne:</h2>
+
+<ul>
+<li><code>sin()</code> - sinus</li>
+<li><code>cos()</code> - cosinus</li>
+<li><code>tan()</code> - tangens</li>
+<li><code>asin()</code> - arcus sinus</li>
+<li><code>acos()</code> - arcus cosinus</li>
+<li><code>atan()</code> - arcus tangens</li>
+<li><code>sinh()</code> - sinus hiperboliczny</li>
+<li><code>cosh()</code> - cosinus hiperboliczny</li>
+<li><code>tanh()</code> - tangens hiperboliczny</li>
+</ul>
+
+<p>Przyjmują jeden argument liczbowy, zwracają wartość tego samego typu.</p>
+
+<h2 id="funkcje-logarytmiczne">Funkcje logarytmiczne:</h2>
+
+<ul>
+<li><code>log()</code> - logarytm naturalny</li>
+<li><code>log10()</code> - logarytm przy podstawie 10</li>
+</ul>
+
+<p>Przyjmują jeden argument liczbowy, zwracają wartość tego samego typu.</p>
+
+
+
+<h2 id="funkcje-potęg">Funkcje potęg:</h2>
+
+<ul>
+<li><code>T pow(T base, T exponent)</code> - Podnosi <code>base</code> do potęgi <code>exponent</code></li>
+<li><code>T sqrt(T x)</code> - Pierwiastek z <code>x</code></li>
+</ul>
+
+<p>gdzie T to <code>double</code>, <code>float</code>, lub <code>long double</code></p>
+
+<h1 id="funkcje-związane-z-czasem-ctime">Funkcje związane z czasem - <code>&lt;ctime&gt;</code></h1>
+
+<ul>
+<li><code>time(0)</code> - zwraca obecny czas jako liczbę sekund od 1 stycznia 1970, godziny 00:00</li>
+</ul>
+
+<h1 id="manipulacja-wewy-iomanip">Manipulacja we/wy - <code>&lt;iomanip&gt;</code></h1>
+
+<p>podstawa systemu liczbowego - <code>std::setbase</code></p>
+
+<blockquote>
+  <p>użycie:</p>
+  
+  <pre class="prettyprint"><code class="language-C++ hljs cpp"><span class="hljs-keyword">int</span> a = <span class="hljs-number">16</span>;
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">std</span>::setbase(<span class="hljs-number">16</span>) &lt;&lt; a &lt;&lt; <span class="hljs-built_in">std</span>::endl;
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">std</span>::setbase(<span class="hljs-number">10</span>) &lt;&lt; a &lt;&lt; <span class="hljs-built_in">std</span>::endl;
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">std</span>::setbase(<span class="hljs-number">8</span>) &lt;&lt; a &lt;&lt; <span class="hljs-built_in">std</span>::endl;</code></pre>
+  
+  <p>efekt:</p>
+  
+  <pre class="prettyprint"><code class=" hljs ">10
+16
+20</code></pre>
+  
+  <p>Możliwe argumenty to 8, 10 i 16</p>
+</blockquote>
+
+<p>znak wiodący - <code>std::setfill</code></p>
+
+<blockquote>
+  <p>Ma zastosowanie tylko w połączeniu z <code>std::setw</code>. Ustawia znak wiodący, użyty jeżeli liczba ma mniej cyfr niż argument przekazany <code>std::setw</code>. <br>
+  użycie: </p>
+  
+  <pre class="prettyprint"><code class="language-C++ hljs cpp"><span class="hljs-keyword">int</span> a = <span class="hljs-number">128</span>;
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">std</span>::setfill(<span class="hljs-string">'.'</span>) &lt;&lt; <span class="hljs-built_in">std</span>::setw(<span class="hljs-number">10</span>) &lt;&lt; a &lt;&lt; <span class="hljs-built_in">std</span>::endl;</code></pre>
+  
+  <p>efekt:</p>
+  
+  <pre class="prettyprint"><code class=" hljs lasso"><span class="hljs-attribute">...</span><span class="hljs-attribute">...</span><span class="hljs-number">.128</span></code></pre>
+</blockquote>
+
+<p>stała szerokość - <code>std::setw</code></p>
+
+<blockquote>
+  <p>Ustawia szerokość linii wypisanej na wyjście. Jeżeli wypisana liczba jest zbyt krótka przed nią pojawi się odpowiednia ilość spacji, lub znaku przekazanego <code>std::setfill</code> <br>
+  użycie:</p>
+  
+  <pre class="prettyprint"><code class="language-C++ hljs cpp"><span class="hljs-keyword">int</span> a = <span class="hljs-number">128</span>;
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">std</span>::setfill(<span class="hljs-string">'.'</span>) &lt;&lt; <span class="hljs-built_in">std</span>::setw(<span class="hljs-number">10</span>) &lt;&lt; a &lt;&lt; <span class="hljs-built_in">std</span>::endl;</code></pre>
+  
+  <p>efekt:</p>
+  
+  <pre class="prettyprint"><code class=" hljs lasso"><span class="hljs-attribute">...</span><span class="hljs-attribute">...</span><span class="hljs-number">.128</span></code></pre>
+</blockquote>
+
 <hr>
 
 <blockquote>
-  <p>last update: 2017/1/29 - 14:37</p>
+  <p>last update: 2017/1/29 - 15:06</p>
 </blockquote></div></body>
 </html>
