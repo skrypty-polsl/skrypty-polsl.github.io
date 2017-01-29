@@ -36,24 +36,151 @@ Można po bloku <code>#include</code> wydać dyrektywę <code>using namespace st
 <code>&lt;typ&gt; &lt;identyfikator&gt;;</code> lub <code>&lt;typ&gt; &lt;identyfikator&gt;[&lt;rozmiar&gt;];</code> <br>
 Definicja zmiennej; <br>
 <code>&lt;typ&gt; &lt;identyfikator&gt; = &lt;wartość&gt;;</code> lub <code>&lt;typ&gt; &lt;identyfikator&gt;[&lt;rozmiar&gt;] = &lt;wartość&gt;;</code> <br>
-Zmienna może mieć kilka deklaracji ale tylko jedną definicję! <br>
-Typy:</p>
+Zmienna może mieć kilka deklaracji ale tylko jedną definicję!</p>
+
+
+
+<h2 id="typy">Typy</h2>
 
 <ul>
 <li><code>int</code> - zmienna całkowitoliczbowa o zakresie wartości od -2147483648 do 2147483647</li>
-<li><code>double</code> - zmienna zmiennoprzecinkowa o zakresie wartości od <script type="math/tex" id="MathJax-Element-299">1,7\cdot2^{-308}</script> do <script type="math/tex" id="MathJax-Element-300">1,7\cdot2^{308}</script>; lepiej jest używać <code>double</code> zamiast <code>float</code> ze względu na większą precyzję obliczeń.</li>
-<li><code>char</code> - zmienna znakowa; zawiera wartości z zakresu od 0 do 255; te wartości są zazwyczaj traktowane jako znaki w kodzie ASCII; zachować ostrożność przy porównywaniu/przypisywaniu!! wartość do takiej zmiennej wpisujemy w pojedyńczych apostrofach <code>char znak = 'b';</code></li>
+<li><code>unsigned int</code> zmienna całkowitoliczbowa o zakresie wartości od 0 do 4294967295</li>
+<li><code>double</code> - zmienna zmiennoprzecinkowa o zakresie wartości od <script type="math/tex" id="MathJax-Element-393">1,7\cdot e^{-308}</script> do <script type="math/tex" id="MathJax-Element-394">1,7\cdot e^{308}</script>; lepiej jest używać <code>double</code> zamiast <code>float</code> ze względu na większą precyzję obliczeń.</li>
+<li><code>char</code> - zmienna znakowa; zawiera wartości z zakresu od -128 do 127; te wartości są zazwyczaj traktowane jako znaki w kodzie ASCII; zachować ostrożność przy porównywaniu/przypisywaniu!! wartość do takiej zmiennej wpisujemy w pojedynczych apostrofach <code>char znak = 'b';</code></li>
 <li><code>bool</code> - zmienna true/false; może zawierać tylko 0 lub 1; przy porównywaniu lub przypisaniu można użyć słów kluczowych <code>true</code> i <code>false</code></li>
-<li><code>std::string</code> - klasa służąca do przechowywania łańcuchów znaków; wartość do niej wpisujemy w cudzysłowiu <code>std::string slowo = "klucz";</code>; pojedynczy znak można otrzymać na dwa sposoby: metodą <code>at()</code> - <code>std::cout &lt;&lt; slowo.at(2);</code> lub operatorem <code>[]</code> - <code>std::cout &lt;&lt; slowo[2];</code></li>
+<li><code>std::string</code> - klasa służąca do przechowywania łańcuchów znaków; wymaga dołączenia biblioteki <code>&lt;string&gt;</code>; wartość do niej wpisujemy w cudzysłowiu <code>std::string slowo = "klucz";</code>; pojedynczy znak można otrzymać na dwa sposoby: metodą <code>at()</code> - <code>std::cout &lt;&lt; slowo.at(2);</code> lub operatorem <code>[]</code> - <code>std::cout &lt;&lt; slowo[2];</code></li>
 </ul>
+
+<h2 id="tablice">Tablice</h2>
 
 <p>Tablice w C++ tworzymy dodając do nazwy zmiennej jej rozmiar w kwadratowych nawiasach.</p>
 
 <pre class="prettyprint"><code class="language-C++ hljs cs"><span class="hljs-keyword">int</span> tab[<span class="hljs-number">10</span>];</code></pre>
 
+<p>Nazwa tablicy to <em>wskaźnik</em> na jej pierwszy element.</p>
 
+<h2 id="kody-ascii-skrót">Kody ASCII (skrót):</h2>
+
+<ul>
+<li>0 - NULL</li>
+<li>1 do 31 - znaki specjalne(nowa linia, tabulator…)</li>
+<li>32 - spacja</li>
+<li>33 do 47 - interpunkcja</li>
+<li>48 do 57 - cyfry od 0 do 9</li>
+<li>58 do 64 - więcej interpunkcji</li>
+<li>65 do 90 - wielkie litery</li>
+<li>91 do 96 - więcej więcej interpunkcji </li>
+<li>97 do 122 - małe litery</li>
+<li>123 do 126 - więcej więcej więcej interpunkcji</li>
+<li>127 - znak(klawisz) delete</li>
+</ul>
 
 <h1 id="instrukcje-sterujące">Instrukcje sterujące</h1>
+
+
+
+<h2 id="if">if</h2>
+
+<p>Składnia: </p>
+
+
+
+<pre class="prettyprint"><code class="language-C++ hljs ruby"><span class="hljs-keyword">if</span>(warunek_1)
+{
+    <span class="hljs-regexp">//instrukcje</span> <span class="hljs-keyword">do</span> wykonania jeżeli warunek <span class="hljs-number">1</span> jest prawdziwy
+}
+<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(warunek_2)
+{
+    <span class="hljs-regexp">//instrukcje</span> <span class="hljs-keyword">do</span> wykonania jeżeli warunek <span class="hljs-number">2</span> jest prawdziwy
+}
+<span class="hljs-keyword">else</span>
+{
+    <span class="hljs-regexp">//instrukcje</span> <span class="hljs-keyword">do</span> wykonania jeżeli żaden z warunków nie jest prawdziwy
+}</code></pre>
+
+<p>Instrukcja sterująca <code>if()</code> może ale nie musi posiadać bloków <code>else if()</code> i <code>else</code>. BLoków <code>else if()</code> może być nieskończenie wiele, blok <code>else</code> może być tylko jeden.</p>
+
+<p>Warunek może być:</p>
+
+<ul>
+<li>zmienną</li>
+<li>wyrażeniem logicznym</li>
+<li>funkcją(jeżeli funkcja ta zwraca wartość)</li>
+<li>dowolną kombinacją powyższych</li>
+</ul>
+
+<p>Warunek jest fałszywy jeżeli wartość liczbowa wyrażenia to zero, a prawdziwy dla każdej innej wartości. Wyrażenie jest obliczane zawsze od lewej strony i tylko tak długo jak warunek nie jest fałszywy tzn. </p>
+
+
+
+<pre class="prettyprint"><code class="language-C++ hljs r"><span class="hljs-keyword">if</span>(a==<span class="hljs-number">0</span> || i++ || j++ || k++)
+{
+    //<span class="hljs-keyword">...</span>
+}</code></pre>
+
+<p>nie spowoduje inkrementacji żadnej ze zmiennych jeżeli <code>a</code> nie jest równe zero.</p>
+
+
+
+<h2 id="for">for</h2>
+
+<p>Składnia: </p>
+
+
+
+<pre class="prettyprint"><code class="language-C++ hljs ruby"><span class="hljs-keyword">for</span>(instrukcja_1;warunek;instrukcja_2)
+{
+    <span class="hljs-regexp">//instrukcje</span> <span class="hljs-keyword">do</span> powtórzenia
+}</code></pre>
+
+<p>Instrukcja 1 wykona się tylko raz; przed pętlą; nawet jeżeli warunek jest fałszywy; zazwyczaj definiuje się tu zmienną sterującą. <br>
+Warunek jest sprawdzany przed każdym przebiegiem pętli według takich samych zasad jak <code>if()</code>. <br>
+Instrukcja 2 wykona się po każdym przebiegu pętlil; zazwyczaj inkrementuje się tu zmienną sterującą.</p>
+
+
+
+<h2 id="while">while</h2>
+
+<p>Składnia: </p>
+
+
+
+<pre class="prettyprint"><code class="language-C++ hljs ruby"><span class="hljs-keyword">while</span>(warunek)
+{
+    <span class="hljs-regexp">//instrukcje</span> <span class="hljs-keyword">do</span> powtórzenia
+}</code></pre>
+
+<p>Warunek jest sprawdzany przed każdym przebiegiem pętli według takich samych zasad jak <code>if()</code>.</p>
+
+<blockquote>
+  <p>Warte zapamiętania:</p>
+  
+  <pre class="prettyprint"><code class="language-C++ hljs cs">ifstream fin;
+fin.open(<span class="hljs-string">"plik.txt"</span>);
+<span class="hljs-keyword">int</span> a;
+<span class="hljs-keyword">while</span>(fin &gt;&gt; a)
+{
+    <span class="hljs-comment">//instrukcje </span>
+}</code></pre>
+  
+  <p>Będzie się wykonywać tak długo dopóki w pliku są liczby; jeżeli plik zawiera tylko liczby - do końca pliku.</p>
+</blockquote>
+
+
+
+<h2 id="dowhile">do{…}while</h2>
+
+<p>Składnia: </p>
+
+
+
+<pre class="prettyprint"><code class="language-C++ hljs ruby"><span class="hljs-keyword">do</span>
+{
+    <span class="hljs-regexp">//instrukcje</span> <span class="hljs-keyword">do</span> powtórzenia
+}
+<span class="hljs-keyword">while</span>(warunek);</code></pre>
+
+<p>Warunek jest sprawdzany <strong>po</strong> każdym przebiegu pętli według takich samych zasad jak <code>if()</code>.</p>
 
 <h1 id="wejściewyjście-konsoli-iostream">Wejście/wyjście konsoli - <code>&lt;iostream&gt;</code></h1>
 
@@ -102,6 +229,21 @@ Typy:</p>
 </blockquote>
 
 
+
+<h2 id="ignorowanie-znaku-stdcinignore">Ignorowanie znaku - <code>std::cin.ignore()</code></h2>
+
+<blockquote>
+  <p>Pomija jeden znak znajdujący się w buforze. Przydatne jeżeli mamy tam niepotrzebny znak nowej linii po interakcji z użytkownikiem. <br>
+  użycie: </p>
+  
+  <pre class="prettyprint"><code class="language-C++ hljs cpp"><span class="hljs-keyword">int</span> a;
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> slowo;
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; a;
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span>.ignore();
+<span class="hljs-built_in">std</span>::getline(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span>, slowo); <span class="hljs-comment">//wymaga biblioteki &lt;string&gt;</span></code></pre>
+  
+  <p>W tym przykładzie bez <code>std::cin.ignore()</code> funkcja <code>std::getline()</code> nie wczytała by nic poza znakiem nowej linii pozostawionym przez <code>std::cin</code>.</p>
+</blockquote>
 
 <h1 id="wejściewyjście-plikowe-fstream">Wejście/wyjście plikowe - <code>&lt;fstream&gt;</code></h1>
 
@@ -170,6 +312,6 @@ plik &lt;&lt; <span class="hljs-string">"hello world!"</span> &lt;&lt; <span cla
 <hr>
 
 <blockquote>
-  <p>last update: 2017/1/29 - 13:30</p>
+  <p>last update: 2017/1/29 - 14:37</p>
 </blockquote></div></body>
 </html>
