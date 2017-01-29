@@ -28,6 +28,8 @@ pre {background-color: rgba(128,128,128,0.05);}
 Polecenie <code>return 0;</code> nie jest wymagane. <br>
 Można po bloku <code>#include</code> wydać dyrektywę <code>using namespace std;</code>, co pozwala pomijać przedrostek <code>std::</code></p>
 
+
+
 <h1 id="wejściewyjście-konsoli-iostream">Wejście/wyjście konsoli - <code>&lt;iostream&gt;</code></h1>
 
 
@@ -72,5 +74,39 @@ Można po bloku <code>#include</code> wydać dyrektywę <code>using namespace st
   użycie:</p>
   
   <pre class="prettyprint"><code class="language-C++ hljs cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Hello"</span> &lt;&lt; <span class="hljs-built_in">std</span>::endl &lt;&lt; <span class="hljs-string">"world!"</span> &lt;&lt; <span class="hljs-built_in">std</span>::endl;</code></pre>
+</blockquote>
+
+
+
+<h1 id="wejściewyjście-plikowe-fstream">Wejście/wyjście plikowe - <code>&lt;fstream&gt;</code></h1>
+
+<h2 id="strumień-wewy-stdfstream">strumień we/wy - <code>std::fstream</code></h2>
+
+<blockquote>
+  <p>File STREAM <br>
+  użycie:</p>
+  
+  <pre class="prettyprint"><code class="language-C++ hljs avrasm"><span class="hljs-label">std:</span>:fstream plik<span class="hljs-comment">;</span>
+plik<span class="hljs-preprocessor">.open</span>(<span class="hljs-string">"plik.txt"</span>, <span class="hljs-keyword">std</span>::ios::<span class="hljs-keyword">in</span> | <span class="hljs-keyword">std</span>::ios::<span class="hljs-keyword">out</span>)<span class="hljs-comment">;</span></code></pre>
+  
+  <p>przełączniki trybów: <br>
+  - std::ios::in - INput - otwiera plik do odczytu <br>
+  - std::ios::out - OUTput - otwiera plik do zapisu <br>
+  - std::ios::binary - otwiera plik w trybie binarnym <br>
+  - std::ios::ate - AT End - tylko w połączeniu z out; ustala pozycje zapisu na koniec pliku <br>
+  - std::ios::app - APPend - tylko w połączeniu z out; zawartość strumienia wyjściowego zostanie dołączona do istniejącej zawartości <br>
+  - std::ios::trunc - TRUNCate - poprzednia zawartość pliku jest ignorowana</p>
+</blockquote>
+
+<h2 id="strumień-wejściowy-stdifstream">strumień wejściowy - <code>std::ifstream</code></h2>
+
+<blockquote>
+  <p>Input File STREAM</p>
+</blockquote>
+
+<h2 id="strumień-wyjściowy-stdofstream">strumień wyjściowy - <code>std::ofstream</code></h2>
+
+<blockquote>
+  <p>Output File STREAM</p>
 </blockquote></div></body>
 </html>
