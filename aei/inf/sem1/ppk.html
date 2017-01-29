@@ -87,26 +87,58 @@ Można po bloku <code>#include</code> wydać dyrektywę <code>using namespace st
   użycie:</p>
   
   <pre class="prettyprint"><code class="language-C++ hljs avrasm"><span class="hljs-label">std:</span>:fstream plik<span class="hljs-comment">;</span>
-plik<span class="hljs-preprocessor">.open</span>(<span class="hljs-string">"plik.txt"</span>, <span class="hljs-keyword">std</span>::ios::<span class="hljs-keyword">in</span> | <span class="hljs-keyword">std</span>::ios::<span class="hljs-keyword">out</span>)<span class="hljs-comment">;</span></code></pre>
+plik<span class="hljs-preprocessor">.open</span>(<span class="hljs-string">"plik.txt"</span>, <span class="hljs-keyword">std</span>::ios::<span class="hljs-keyword">in</span> | <span class="hljs-keyword">std</span>::ios::<span class="hljs-keyword">out</span>)<span class="hljs-comment">;</span>
+plik &gt;&gt; a<span class="hljs-comment">;</span>
+plik &lt;&lt; <span class="hljs-string">"hello world!"</span> &lt;&lt; <span class="hljs-keyword">std</span>::endl<span class="hljs-comment">;</span></code></pre>
   
-  <p>przełączniki trybów: <br>
-  - std::ios::in - INput - otwiera plik do odczytu <br>
-  - std::ios::out - OUTput - otwiera plik do zapisu <br>
-  - std::ios::binary - otwiera plik w trybie binarnym <br>
-  - std::ios::ate - AT End - tylko w połączeniu z out; ustala pozycje zapisu na koniec pliku <br>
-  - std::ios::app - APPend - tylko w połączeniu z out; zawartość strumienia wyjściowego zostanie dołączona do istniejącej zawartości <br>
-  - std::ios::trunc - TRUNCate - poprzednia zawartość pliku jest ignorowana</p>
+  <p>przełączniki trybów:</p>
+  
+  <ul>
+  <li>std::ios::in - INput - otwiera plik do odczytu</li>
+  <li>std::ios::out - OUTput - otwiera plik do zapisu</li>
+  <li>std::ios::binary - otwiera plik w trybie binarnym</li>
+  <li>std::ios::ate - AT End - tylko w połączeniu z out; ustala pozycje zapisu na koniec pliku</li>
+  <li>std::ios::app - APPend - tylko w połączeniu z out; zawartość strumienia wyjściowego zostanie dołączona do istniejącej zawartości</li>
+  </ul>
+  
+  <p>Pliki zawsze należy zamykać metodą <code>close()</code></p>
+  
+  <pre class="prettyprint"><code class="language-C++ hljs perl">plik.<span class="hljs-keyword">close</span>();</code></pre>
 </blockquote>
 
 <h2 id="strumień-wejściowy-stdifstream">strumień wejściowy - <code>std::ifstream</code></h2>
 
 <blockquote>
-  <p>Input File STREAM</p>
+  <p>Input File STREAM <br>
+  użycie: </p>
+  
+  <pre class="prettyprint"><code class="language-C++ hljs autohotkey"><span class="hljs-label">std::</span>ifstream plik<span class="hljs-comment">;</span>
+plik.open(<span class="hljs-string">"plik.txt"</span>)<span class="hljs-comment">;</span>
+plik &gt;&gt; <span class="hljs-literal">a</span><span class="hljs-comment">;</span></code></pre>
+  
+  <p>Pliki zawsze należy zamykać metodą <code>close()</code></p>
+  
+  <pre class="prettyprint"><code class="language-C++ hljs perl">plik.<span class="hljs-keyword">close</span>();</code></pre>
 </blockquote>
 
 <h2 id="strumień-wyjściowy-stdofstream">strumień wyjściowy - <code>std::ofstream</code></h2>
 
 <blockquote>
-  <p>Output File STREAM</p>
+  <p>Output File STREAM <br>
+  użycie: </p>
+  
+  <pre class="prettyprint"><code class="language-C++ hljs avrasm"><span class="hljs-label">std:</span>:ofstream plik<span class="hljs-comment">;</span>
+plik<span class="hljs-preprocessor">.open</span>(<span class="hljs-string">"plik.txt"</span>)<span class="hljs-comment">;</span>
+plik &lt;&lt; <span class="hljs-string">"hello world!"</span> &lt;&lt; <span class="hljs-keyword">std</span>::endl<span class="hljs-comment">;</span></code></pre>
+  
+  <p>Pliki zawsze należy zamykać metodą <code>close()</code></p>
+  
+  <pre class="prettyprint"><code class="language-C++ hljs perl">plik.<span class="hljs-keyword">close</span>();</code></pre>
+</blockquote>
+
+<hr>
+
+<blockquote>
+  <p>last update: 2017/1/29 - 13:00</p>
 </blockquote></div></body>
 </html>
