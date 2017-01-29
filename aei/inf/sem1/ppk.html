@@ -115,7 +115,38 @@ std::cout &lt;&lt; <span class="hljs-variable">*wsk</span>;</code></pre>
 
 <h2 id="struktury">Struktury</h2>
 
+<p><em>Struktury</em> są to definiowane przez programistę obiekty używane do przechowywania danych.</p>
 
+<p>Strukturę definiujemy w następujący sposób:</p>
+
+
+
+<pre class="prettyprint"><code class="language-C++ hljs cpp"><span class="hljs-keyword">struct</span> samochod
+{
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> marka;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> model;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> nr_rejestracyjny;
+    <span class="hljs-keyword">int</span> waga;
+    <span class="hljs-keyword">int</span> prędkosc;
+};</code></pre>
+
+<p>Po definicji struktury należy postawić <strong>średnik</strong>.</p>
+
+<p>Korzystamy z takiej struktury w następujący sposób:</p>
+
+
+
+<pre class="prettyprint"><code class="language-C++ hljs r">struct samochod{<span class="hljs-keyword">...</span>};
+int main()
+{
+    struct sam1;
+    sam1.marka=<span class="hljs-string">"Skoda"</span>;
+    sam1.waga=<span class="hljs-string">"1200"</span>;
+    struct sam2={<span class="hljs-string">"Fiat"</span>,<span class="hljs-string">"126p"</span>,<span class="hljs-string">"XYZ12AB"</span>,<span class="hljs-number">800</span>,<span class="hljs-number">90</span>};
+    std::cout &lt;&lt; sam2.model;
+}</code></pre>
+
+<p>Jeżeli używamy wskaźnika na strukturę, operator kropki zastępujemy strzałką <code>-&gt;</code></p>
 
 <h1 id="instrukcje-sterujące">Instrukcje sterujące</h1>
 
@@ -482,6 +513,6 @@ plik &lt;&lt; <span class="hljs-string">"hello world!"</span> &lt;&lt; <span cla
 <hr>
 
 <blockquote>
-  <p>last update: 2017/1/29 - 15:27</p>
+  <p>last update: 2017/1/29 - 15:39</p>
 </blockquote></div></body>
 </html>
