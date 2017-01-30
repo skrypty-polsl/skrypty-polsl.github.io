@@ -44,20 +44,28 @@ Zmienna może mieć kilka deklaracji ale tylko jedną definicję!</p>
 
 <ul>
 <li><code>int</code> - zmienna całkowitoliczbowa o zakresie wartości od -2147483648 do 2147483647</li>
-<li><code>unsigned int</code> zmienna całkowitoliczbowa o zakresie wartości od 0 do 4294967295</li>
-<li><code>double</code> - zmienna zmiennoprzecinkowa o zakresie wartości od <script type="math/tex" id="MathJax-Element-393">1,7\cdot e^{-308}</script> do <script type="math/tex" id="MathJax-Element-394">1,7\cdot e^{308}</script>; lepiej jest używać <code>double</code> zamiast <code>float</code> ze względu na większą precyzję obliczeń.</li>
+<li><code>unsigned int</code> - zmienna całkowitoliczbowa o zakresie wartości od 0 do 4294967295</li>
+<li><code>long long int</code> - zmienna całkowitoliczbowa o zakresie wartości od -9223372036854775808 to 9223372036854775807</li>
+<li><code>float</code> - zmienna zmiennoprzecinkowa; obliczenia na zmiennych tego typu są niedokładne.</li>
+<li><code>double</code> - zmienna zmiennoprzecinkowa o zakresie wartości od <script type="math/tex" id="MathJax-Element-331">1,7\cdot e^{-308}</script> do <script type="math/tex" id="MathJax-Element-332">1,7\cdot e^{308}</script>; lepiej jest używać <code>double</code> zamiast <code>float</code> ze względu na większą precyzję obliczeń; zachować najwyższą ostrożność przy operacjach logicznych oraz przy używaniu jako warunków w instrukcjach sterujących, gdyż zmienne typu <code>float</code> i <code>double</code> mogą dawać niedokładne wyniki, np. <code>sqrt(4) == 2</code> może dać wynik <code>false</code>.</li>
 <li><code>char</code> - zmienna znakowa; zawiera wartości z zakresu od -128 do 127; te wartości są zazwyczaj traktowane jako znaki w kodzie ASCII; zachować ostrożność przy porównywaniu/przypisywaniu!! wartość do takiej zmiennej wpisujemy w pojedynczych apostrofach <code>char znak = 'b';</code></li>
 <li><code>bool</code> - zmienna true/false; może zawierać tylko 0 lub 1; przy porównywaniu lub przypisaniu można użyć słów kluczowych <code>true</code> i <code>false</code></li>
 <li><code>std::string</code> - klasa służąca do przechowywania łańcuchów znaków; wymaga dołączenia biblioteki <code>&lt;string&gt;</code>; wartość do niej wpisujemy w cudzysłowiu <code>std::string slowo = "klucz";</code>; pojedynczy znak można otrzymać na dwa sposoby: metodą <code>at()</code> - <code>std::cout &lt;&lt; slowo.at(2);</code> lub operatorem <code>[]</code> - <code>std::cout &lt;&lt; slowo[2];</code></li>
 </ul>
 
+<p>Każdy typ można poprzedzić słowem <code>unsigned</code> uzyskując zakres <code>0 do n</code> zamiast <code>-n/2 do n/2-1</code>.</p>
+
 <h2 id="tablice">Tablice</h2>
 
 <p>Tablice w C++ tworzymy dodając do nazwy zmiennej jej rozmiar w kwadratowych nawiasach.</p>
 
+
+
 <pre class="prettyprint"><code class="language-C++ hljs cs"><span class="hljs-keyword">int</span> tab[<span class="hljs-number">10</span>];</code></pre>
 
 <p>Nazwa tablicy to <em>wskaźnik</em> na jej pierwszy element.</p>
+
+
 
 <h2 id="kody-ascii-skrót">Kody ASCII (skrót):</h2>
 
@@ -85,21 +93,19 @@ Zmienna może mieć kilka deklaracji ale tylko jedną definicję!</p>
 
 <p><em>Wskaźnik</em> to zmienna która zamiast wartości przechowuje adres w pamięci innej zmiennej.</p>
 
-<p>Wskaźniki deklarujemy:  <br>
-<code>&lt;typ&gt; *&lt;identyfikator&gt;;</code> lub <code>&lt;typ&gt; *&lt;identyfikator&gt;[];</code> <br>
-a definiujemy: <br>
-<code>&lt;typ&gt; *&lt;identyfikator&gt;=&lt;adres&gt;</code> lub <code>&lt;typ&gt; *&lt;identyfikator&gt;=&lt;adres&gt;</code> <br>
-gdzie <code>&lt;adres&gt;</code> może być: numerem komórki w pamięci, słowem kluczowym <code>nullptr</code>, identyfikatorem już istniejącego wskaźnika lub nazwą istniejącej zmiennej poprzedzoną znakiem <code>&amp;</code>.</p>
+<p>Wskaźniki deklarujemy: <code>&lt;typ&gt; *&lt;identyfikator&gt;;</code> a definiujemy: <br>
+<code>&lt;typ&gt; *&lt;identyfikator&gt;=&lt;adres&gt;;</code> gdzie <code>&lt;adres&gt;</code> może być: numerem komórki w pamięci, słowem kluczowym <code>nullptr</code>, identyfikatorem już istniejącego wskaźnika lub nazwą istniejącej zmiennej poprzedzoną znakiem <code>&amp;</code>.</p>
 
 <p>Wskaźnika można też użyć do utworzenia nowej zmiennej słowem kluczowym <code>new</code>: <br>
 <code>&lt;typ&gt; *&lt;identyfikator&gt;=new &lt;typ&gt;;</code>. <br>
+Tworzenie tablicy w powyższy sposób: <br>
+<code>&lt;typ&gt; *&lt;identyfikator&gt;=new &lt;typ&gt;[&lt;rozmiar&gt;];</code> <br>
 Należy zawsze pamiętać o usunięciu takiej zmiennej, gdy nie jest dłużej potrzebna słowem kluczowym <code>delete</code>: <br>
 <code>delete &lt;identyfkator&gt;;</code> <br>
+<code>delete[] &lt;identyfikator&gt;;</code> <br>
 Nie usunięcie zmiennej dynamicznej prowadzi do <em>wycieku pamięci</em>.</p>
 
 <p>Przy korzystaniu ze wskaźników warto pamiętać o tym, że</p>
-
-
 
 <pre class="prettyprint"><code class="language-C++ hljs cpp"><span class="hljs-keyword">int</span> a = <span class="hljs-number">5</span>
 <span class="hljs-keyword">int</span> *wsk = &amp;a;
@@ -107,11 +113,15 @@ Nie usunięcie zmiennej dynamicznej prowadzi do <em>wycieku pamięci</em>.</p>
 
 <p>wypisze na ekran adres zmiennej <code>a</code> a nie jej zawartość, a</p>
 
+
+
 <pre class="prettyprint"><code class="language-C++ hljs perl"><span class="hljs-keyword">int</span> a = <span class="hljs-number">5</span>
 <span class="hljs-keyword">int</span> <span class="hljs-variable">*wsk</span> = &amp;a;
 std::cout &lt;&lt; <span class="hljs-variable">*wsk</span>;</code></pre>
 
 <p>wypisze na ekran zawartość zmiennej <code>a</code>.</p>
+
+
 
 <h2 id="struktury">Struktury</h2>
 
@@ -147,6 +157,8 @@ int main()
 }</code></pre>
 
 <p>Jeżeli używamy wskaźnika na strukturę, operator kropki zastępujemy strzałką <code>-&gt;</code></p>
+
+
 
 <h1 id="instrukcje-sterujące">Instrukcje sterujące</h1>
 
@@ -255,6 +267,8 @@ fin.open(<span class="hljs-string">"plik.txt"</span>);
 
 <p>Warunek jest sprawdzany <strong>po</strong> każdym przebiegu pętli według takich samych zasad jak <code>if()</code>.</p>
 
+
+
 <h1 id="wejściewyjście-konsoli-iostream">Wejście/wyjście konsoli - <code>&lt;iostream&gt;</code></h1>
 
 
@@ -317,6 +331,8 @@ fin.open(<span class="hljs-string">"plik.txt"</span>);
   
   <p>W tym przykładzie bez <code>std::cin.ignore()</code> funkcja <code>std::getline()</code> nie wczytała by nic poza znakiem nowej linii pozostawionym przez <code>std::cin</code>.</p>
 </blockquote>
+
+
 
 <h1 id="wejściewyjście-plikowe-fstream">Wejście/wyjście plikowe - <code>&lt;fstream&gt;</code></h1>
 
@@ -384,6 +400,24 @@ plik &lt;&lt; <span class="hljs-string">"hello world!"</span> &lt;&lt; <span cla
 
 
 
+<h2 id="sprawdzanie-otwarcia-pliku-stdfstreamisopen">sprawdzanie otwarcia pliku - <code>std::fstream::is_open</code></h2>
+
+<blockquote>
+  <p>metodę <code>is_open()</code> można wywołać na każdej klasie pochodnej od <code>fstream</code> - czyli <code>ifstream</code>, <code>ofstream</code> i <code>fstream</code>. <br>
+  wartość zwracana jest typu <code>bool</code> - <code>true</code> jeśli plik istnieje i udało się go otworzyć, <code>false</code> w przeciwnym wypadku. <br>
+  użycie:</p>
+  
+  <pre class="prettyprint"><code class="language-C++ hljs cpp"><span class="hljs-built_in">std</span>::fstream fileio(<span class="hljs-string">"file1.txt"</span>, <span class="hljs-built_in">std</span>::ios::in | <span class="hljs-built_in">std</span>::ios::out);
+<span class="hljs-built_in">std</span>::ifstream fin(<span class="hljs-string">"file2.txt"</span>);
+<span class="hljs-built_in">std</span>::ofstream fout(<span class="hljs-string">"file3.txt"</span>);
+<span class="hljs-keyword">if</span>(fileio.is_open())
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"f1 success"</span> &lt;&lt; <span class="hljs-built_in">std</span>::endl;
+<span class="hljs-keyword">if</span>(fin.is_open())
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"f2 success"</span> &lt;&lt; <span class="hljs-built_in">std</span>::endl;
+<span class="hljs-keyword">if</span>(fin.is_open())
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"f3 success"</span> &lt;&lt; <span class="hljs-built_in">std</span>::endl;</code></pre>
+</blockquote>
+
 <h1 id="funkcje-matematyczne-cmath">Funkcje matematyczne - <code>&lt;cmath&gt;</code></h1>
 
 
@@ -403,6 +437,8 @@ plik &lt;&lt; <span class="hljs-string">"hello world!"</span> &lt;&lt; <span cla
 </ul>
 
 <p>Przyjmują jeden argument liczbowy, zwracają wartość tego samego typu.</p>
+
+
 
 <h2 id="funkcje-logarytmiczne">Funkcje logarytmiczne:</h2>
 
@@ -424,9 +460,13 @@ plik &lt;&lt; <span class="hljs-string">"hello world!"</span> &lt;&lt; <span cla
 
 <p>gdzie T to <code>double</code>, <code>float</code>, lub <code>long double</code></p>
 
+
+
 <h1 id="funkcje-związane-z-czasem-ctime">Funkcje związane z czasem - <code>&lt;ctime&gt;</code></h1>
 
 <p><code>time(0)</code> - zwraca obecny czas jako liczbę sekund od 1 stycznia 1970, godziny 00:00</p>
+
+
 
 <h1 id="manipulacja-wewy-iomanip">Manipulacja we/wy - <code>&lt;iomanip&gt;</code></h1>
 
@@ -513,6 +553,6 @@ plik &lt;&lt; <span class="hljs-string">"hello world!"</span> &lt;&lt; <span cla
 <hr>
 
 <blockquote>
-  <p>last update: 2017/1/29 - 15:42</p>
+  <p>last update: 2017/1/30 - 21:19</p>
 </blockquote></div></body>
 </html>
