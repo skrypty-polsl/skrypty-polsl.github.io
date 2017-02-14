@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informatyka, Semestr I, Analiza Matematyczna i Algebra Liniowa</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+<style>
+body {background-color: #f6f6f6;}
+blockquote {background-color: rgba(128,128,128,0.05);}
+pre {background-color: rgba(128,128,128,0.05);}
+</style>
+</head>
+<body><div class="container"><h1 id="liczby-zespolone">Liczby zespolone</h1>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-1049">\DeclareMathOperator{Arg}{Arg}</script><script type="math/tex" id="MathJax-Element-1050">\DeclareMathOperator{N}{N}</script><script type="math/tex" id="MathJax-Element-1051">\DeclareMathOperator{arccot}{arccot}</script><script type="math/tex" id="MathJax-Element-1052">\DeclareMathOperator{R}{R}</script><script type="math/tex" id="MathJax-Element-1053">z=a+bi</script></li>
+<li><script type="math/tex" id="MathJax-Element-1054">z_1\pm z_2=(a_1\pm a_2)+(b_1\pm b_2)i</script></li>
+<li><script type="math/tex" id="MathJax-Element-1055">z_1z_2=(a_1a_2-b_1b_2)+(a_1b_2+a_2b_1)i</script></li>
+<li><script type="math/tex" id="MathJax-Element-1056">\frac{z_1}{z_2}=\frac{a_1a_2+b_1b_2}{a_2^2+b^2_2}+\frac{a_2b_1-a_1b_2}{a_2^2+b^2_2}i</script></li>
+</ul>
+
+
+
+<h3 id="postać-trygonometryczna-liczby-zespolonej">Postać trygonometryczna liczby zespolonej</h3>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-1057">z=r(\cos{\varphi}+i\sin{\varphi})</script></li>
+<li><script type="math/tex" id="MathJax-Element-1058">r=\sqrt{a^2+b^2}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1059">\cos{\varphi}=\frac{a}{r}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1060">\sin{\varphi}=\frac{b}{r}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1061">r=|z|</script></li>
+<li><script type="math/tex" id="MathJax-Element-1062">\varphi=\arg{z}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1063">\varphi\in\langle0,2\pi)\Rightarrow\varphi=\Arg{z}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1064">z_1z_2=r_1r_2(\cos{(\varphi_1+\varphi_2)}+i\sin{(\varphi_1+\varphi_2)})</script></li>
+<li><script type="math/tex" id="MathJax-Element-1065">\frac{z_1}{z_2}=\frac{r_1}{r_2}(\cos{(\varphi_1-\varphi_2)}+i\sin{(\varphi_1-\varphi_2)})</script></li>
+</ul>
+
+
+
+<h3 id="wzór-moivrea">Wzór Moivre’a</h3>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-1066">\forall_{n\in\N}\ \ \ z^n=r^n(\cos{n\varphi}+i\sin{n\varphi})</script></li>
+</ul>
+
+
+
+<h3 id="pierwiastkowanie-liczb-zespolonych">Pierwiastkowanie liczb zespolonych</h3>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-1067">\sqrt[n]{z}=\omega\Leftrightarrow\omega^n=z</script></li>
+<li><script type="math/tex" id="MathJax-Element-1068">z=r(\cos\varphi+i\sin\varphi)</script></li>
+<li><script type="math/tex" id="MathJax-Element-1069">\omega=r(\cos\alpha+i\sin\alpha)</script></li>
+<li><script type="math/tex" id="MathJax-Element-1070">\omega_k=\sqrt[n]{r}(\cos{\frac{\varphi+2k\pi}{n}}+i\sin{\frac{\varphi+2k\pi}{n}}</script></li>
+</ul>
+
+
+
+<h3 id="postać-wykładnicza-liczby-zespolonej">Postać wykładnicza liczby zespolonej</h3>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-1071">e^{i\varphi}=\cos{\varphi}+i\sin{\varphi}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1072">z=|z|e^{i\varphi}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1073">(r_1e^{i\varphi_1})(r_2e^{i\varphi_2})=</script></li>
+<li><script type="math/tex" id="MathJax-Element-1074">(re^{i\varphi})^n=r^ne^{in\varphi}</script></li>
+</ul>
+
+
+
+<h1 id="przegląd-funkcji-elementarnych">Przegląd funkcji elementarnych</h1>
+
+
+
+<h3 id="własności-logarytmów">Własności logarytmów</h3>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-1075">\log_a{b}=c\Leftrightarrow a^c=b\ \ \ (a>0,a\not=1, b>0)</script></li>
+<li><script type="math/tex" id="MathJax-Element-1076">\log_a{b}+\log_a{c}=log_a{(bc)}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1077">\log_a{b}-\log_a{c}=log_a{\frac{b}{c}}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1078">\log_a{b}^k=k\log_a{b}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1079">\log_a{b}=\frac{\log_c{b}}{log_c{a}}=\frac{\ln{b}}{\ln{a}}</script></li>
+</ul>
+
+
+
+<h3 id="niektóre-własności-funkcji-hiperbolicznych">Niektóre własności funkcji hiperbolicznych</h3>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-1080">\cosh^2{x}-\sinh^2{x}=1</script></li>
+<li><script type="math/tex" id="MathJax-Element-1081">\sinh{2x}=2\sinh{x}\cosh{x}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1082">\cosh{2x}=\cosh^2{x}+\sinh^2{x}</script></li>
+</ul>
+
+
+
+<h3 id="własności-funkcji-trygonometrycznych">Własności funkcji trygonometrycznych</h3>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-1083">\sin^2{x}+\cos^2{x}=1</script></li>
+<li><script type="math/tex" id="MathJax-Element-1084">\tan{x}\cot{x}=1</script></li>
+<li><script type="math/tex" id="MathJax-Element-1085">\sin{2x}=2\sin{x}\cos{x}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1086">\cos{2x}=\cos^2{x}-\sin^2{x}=1-2\sin^2{x}=2\cos^2{x}-1</script></li>
+<li><script type="math/tex" id="MathJax-Element-1087">\sin{(x+y)}=\sin{x}\cos{y}+\cos{x}\sin{y}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1088">\cos{(x+y)}=\cos{x}\cos{y}-\sin{x}\sin{y}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1089">\sin(\pi-x)=\sin{x}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1090">\sin(\pi+x)=-\sin{x}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1091">\sin(\frac{\pi}{2}-x)=\cos{x}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1092">\sin(\frac{3\pi}{2}+x)=-\cos{x}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1093">\cos(\frac{\pi}{2}+x)=-\sin{x}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1094">\cos(\pi-x)=-\cos{x}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1095">\tan(\frac{\pi}{2}-x)=\cot{x}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1096">\cot(\frac{\pi}{2}+x)=-\tan{x}</script></li>
+</ul>
+
+
+
+<h3 id="własności-funkcji-cyklometrycznych">Własności funkcji cyklometrycznych</h3>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-1097">\arcsin{x}+\arccos{x}=\frac{\pi}{2}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1098">\arctan{x}+\arccot{x}=\frac{\pi}{2}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1099">\sin(\arcsin{x})=x</script></li>
+<li><script type="math/tex" id="MathJax-Element-1100">\arcsin(\sin{x})=x</script></li>
+</ul>
+
+
+
+<h1 id="ciągi">Ciągi</h1>
+
+<p>Granica ciągu:  <br>
+<script type="math/tex; mode=display" id="MathJax-Element-1101">\lim_{n\rightarrow\infty}{a_n}=L\Leftrightarrow\forall_{\varepsilon>0}\exists_{N\in\N}\forall_{n<N}\ \ \ d(a_n,L)<\varepsilon</script> <br>
+Ważne granice: </p>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-1102">\lim_n{\sqrt[n]{n}}=1</script></li>
+<li><script type="math/tex" id="MathJax-Element-1103">\forall_{a>0}\ \ \lim_n{\sqrt[n]{a}}=1</script></li>
+<li><script type="math/tex" id="MathJax-Element-1104">\forall_{a\in\R}\ \ \lim_n{\frac{a^n}{n!}}=0</script></li>
+<li><script type="math/tex" id="MathJax-Element-1105">\lim_n(1+\frac{1}{n})^n=e</script></li>
+</ul>
+
+
+
+<h1 id="granice-i-ciągłość-funkcji">Granice i ciągłość funkcji</h1>
+
+
+
+<h2 id="definicje-heinego">Definicje Heinego</h2>
+
+
+
+<h4 id="definicja-heinego-granicy-funkcji-f-w-punkcie-a">Definicja Heinego granicy funkcji <script type="math/tex" id="MathJax-Element-1106">f</script> w punkcie <script type="math/tex" id="MathJax-Element-1107">a</script>:</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1108">\lim_{x\rightarrow a}{f(x)}=L\Leftrightarrow\forall_{\lbrace x_n\rbrace, x_n\in D, x_n\not=a}\Big[\lim_{n\rightarrow\infty}{x_n}=a\Rightarrow\lim_{n\rightarrow\infty}{f(x_n)}=L\Big]</script></p>
+
+
+
+<h4 id="definicja-heinego-granicy-funkcji-f-lewostronnej">Definicja Heinego granicy funkcji <script type="math/tex" id="MathJax-Element-1109">f</script> lewostronnej:</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1110">\lim_{x\rightarrow a^-}{f(x)}=L\Leftrightarrow\forall_{\lbrace x_n\rbrace, x_n\in D, x_n<a}\Big[\lim_{n\rightarrow\infty}{x_n}=a\Rightarrow\lim_{n\rightarrow\infty}{f(x_n)}=L\Big]</script></p>
+
+
+
+<h4 id="definicja-heinego-granicy-funkcji-f-prawostronnej">Definicja Heinego granicy funkcji <script type="math/tex" id="MathJax-Element-1111">f</script> prawostronnej:</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1112">\lim_{x\rightarrow a^+}{f(x)}=L\Leftrightarrow\forall_{\lbrace x_n\rbrace, x_n\in D, x_n>a}\Big[\lim_{n\rightarrow\infty}{x_n}=a\Rightarrow\lim_{n\rightarrow\infty}{f(x_n)}=L\Big]</script></p>
+
+
+
+<h4 id="definicje-heinego-granic-niewłaściwych">Definicje Heinego granic niewłaściwych:</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1113">\lim_{x\rightarrow a}{f(x)}=+\infty\Leftrightarrow\forall_{\lbrace x_n\rbrace, x_n\in D, x_n\not=a}\Big[\lim_{n\rightarrow\infty}{x_n}=a\Rightarrow\lim_{n\rightarrow\infty}{f(x_n)}=+\infty\Big]</script> <br>
+<script type="math/tex; mode=display" id="MathJax-Element-1114">\lim_{x\rightarrow a}{f(x)}=-\infty\Leftrightarrow\forall_{\lbrace x_n\rbrace, x_n\in D, x_n\not=a}\Big[\lim_{n\rightarrow\infty}{x_n}=a\Rightarrow\lim_{n\rightarrow\infty}{f(x_n)}=-\infty\Big]</script></p>
+
+
+
+<h4 id="definicje-heinego-granic-niewłaściwych-jednostronnych">Definicje Heinego granic niewłaściwych jednostronnych:</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1115">\lim_{x\rightarrow a^+}{f(x)}=+\infty\Leftrightarrow\forall_{\lbrace x_n\rbrace, x_n\in D, x_n>a}\Big[\lim_{n\rightarrow\infty}{x_n}=a\Rightarrow\lim_{n\rightarrow\infty}{f(x_n)}=+\infty\Big]</script> <br>
+<script type="math/tex; mode=display" id="MathJax-Element-1116">\lim_{x\rightarrow a^-}{f(x)}=+\infty\Leftrightarrow\forall_{\lbrace x_n\rbrace, x_n\in D, x_n<a}\Big[\lim_{n\rightarrow\infty}{x_n}=a\Rightarrow\lim_{n\rightarrow\infty}{f(x_n)}=+\infty\Big]</script> <br>
+<script type="math/tex; mode=display" id="MathJax-Element-1117">\lim_{x\rightarrow a^+}{f(x)}=-\infty\Leftrightarrow\forall_{\lbrace x_n\rbrace, x_n\in D, x_n>a}\Big[\lim_{n\rightarrow\infty}{x_n}=a\Rightarrow\lim_{n\rightarrow\infty}{f(x_n)}=-\infty\Big]</script> <br>
+<script type="math/tex; mode=display" id="MathJax-Element-1118">\lim_{x\rightarrow a^-}{f(x)}-\infty\Leftrightarrow\forall_{\lbrace x_n\rbrace, x_n\in D, x_n<a}\Big[\lim_{n\rightarrow\infty}{x_n}=a\Rightarrow\lim_{n\rightarrow\infty}{f(x_n)}=-\infty\Big]</script></p>
+
+
+
+<h4 id="definicje-heinego-granicy-funkcji-w-nieskończoności">Definicje Heinego granicy funkcji w nieskończoności:</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1119">\lim_{x\rightarrow +\infty}{f(x)}=L\Leftrightarrow\forall_{\lbrace x_n\rbrace,x_n\in D}\Big[\lim_{n\rightarrow\infty}{x_n}=+\infty\Rightarrow\lim_{n\rightarrow\infty}{f(x_n)}=L\Big]</script> <br>
+<script type="math/tex; mode=display" id="MathJax-Element-1120">\lim_{x\rightarrow -\infty}{f(x)}=L\Leftrightarrow\forall_{\lbrace x_n\rbrace,x_n\in D}\Big[\lim_{n\rightarrow\infty}{x_n}=-\infty\Rightarrow\lim_{n\rightarrow\infty}{f(x_n)}=L\Big]</script></p>
+
+
+
+<h4 id="definicje-heinego-granic-niewłaściwych-w-nieskończoności">Definicje Heinego granic niewłaściwych w nieskończoności:</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1121">\lim_{x\rightarrow +\infty}{f(x)}=+\infty\Leftrightarrow\forall_{\lbrace x_n\rbrace,x_n\in D}\Big[\lim_{n\rightarrow\infty}{x_n}=+\infty\Rightarrow\lim_{n\rightarrow\infty}{f(x_n)}=+\infty\Big]</script> <br>
+<script type="math/tex; mode=display" id="MathJax-Element-1122">\lim_{x\rightarrow +\infty}{f(x)}=-\infty\Leftrightarrow\forall_{\lbrace x_n\rbrace,x_n\in D}\Big[\lim_{n\rightarrow\infty}{x_n}=+\infty\Rightarrow\lim_{n\rightarrow\infty}{f(x_n)}=-\infty\Big]</script> <br>
+<script type="math/tex; mode=display" id="MathJax-Element-1123">\lim_{x\rightarrow -\infty}{f(x)}=+\infty\Leftrightarrow\forall_{\lbrace x_n\rbrace,x_n\in D}\Big[\lim_{n\rightarrow\infty}{x_n}=-\infty\Rightarrow\lim_{n\rightarrow\infty}{f(x_n)}=+\infty\Big]</script> <br>
+<script type="math/tex; mode=display" id="MathJax-Element-1124">\lim_{x\rightarrow -\infty}{f(x)}=-\infty\Leftrightarrow\forall_{\lbrace x_n\rbrace,x_n\in D}\Big[\lim_{n\rightarrow\infty}{x_n}=-\infty\Rightarrow\lim_{n\rightarrow\infty}{f(x_n)}=-\infty\Big]</script></p>
+
+
+
+<h2 id="definicje-cauchyego">Definicje Cauchy’ego</h2>
+
+
+
+<h4 id="definicja-cauchyego-granicy-funkcji-f-w-punkcie-a">Definicja Cauchy’ego granicy funkcji <script type="math/tex" id="MathJax-Element-1125">f</script> w punkcie <script type="math/tex" id="MathJax-Element-1126">a</script>:</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1127">\lim_{x\rightarrow a}{f(x)}=L\Leftrightarrow\forall_{\varepsilon>0}\exists_{\delta>0}\forall_{x\in D}\Big[0<d_X(x,a)<\delta \Rightarrow d_Y(f(x),L)<\varepsilon\Big]</script></p>
+
+
+
+<h4 id="definicja-cauchyego-granicy-funkcji-f-lewostronnej">Definicja Cauchy’ego granicy funkcji <script type="math/tex" id="MathJax-Element-1128">f</script> lewostronnej:</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1129">\lim_{x\rightarrow a^-}{f(x)}=L\Leftrightarrow\forall_{\varepsilon>0}\exists_{\delta>0}\forall_{x\in D}\Big[a<x<a+\delta \Rightarrow d_Y(f(x),L)<\varepsilon\Big]</script></p>
+
+
+
+<h4 id="definicja-cauchyego-granicy-funkcji-f-prawostronnej">Definicja Cauchy’ego granicy funkcji <script type="math/tex" id="MathJax-Element-1130">f</script> prawostronnej:</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1131">\lim_{x\rightarrow a^+}{f(x)}=L\Leftrightarrow\forall_{\varepsilon>0}\exists_{\delta>0}\forall_{x\in D}\Big[a-\delta<x<a\Rightarrow d_Y(f(x),L)<\varepsilon\Big]</script></p>
+
+
+
+<h4 id="definicje-cauchyego-granic-niewłaściwych">Definicje Cauchy’ego granic niewłaściwych:</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1132">\lim_{x\rightarrow a}{f(x)}=+\infty\Leftrightarrow\forall_{M}\exists_{\delta>0}\forall_{x\in D}\Big[0<d_X(x,a)<\delta \Rightarrow f(x)>M\Big]</script> <br>
+<script type="math/tex; mode=display" id="MathJax-Element-1133">\lim_{x\rightarrow a}{f(x)}=-\infty\Leftrightarrow\forall_{m}\exists_{\delta>0}\forall_{x\in D}\Big[0<d_X(x,a)<\delta \Rightarrow f(x)<m\Big]</script></p>
+
+
+
+<h4 id="definicje-cauchyego-granic-niewłaściwych-jednostronnych">Definicje Cauchy’ego granic niewłaściwych jednostronnych:</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1134">\lim_{x\rightarrow a^+}{f(x)}=+\infty\Leftrightarrow\forall_{M}\exists_{\delta>0}\forall_{x\in D}\Big[a<x<a+\delta\Rightarrow f(x)>M\Big]</script> <br>
+<script type="math/tex; mode=display" id="MathJax-Element-1135">\lim_{x\rightarrow a^-}{f(x)}=+\infty\Leftrightarrow\forall_{M}\exists_{\delta>0}\forall_{x\in D}\Big[a-\delta<x<a\Rightarrow f(x)>M\Big]</script> <br>
+<script type="math/tex; mode=display" id="MathJax-Element-1136">\lim_{x\rightarrow a^+}{f(x)}=-\infty\Leftrightarrow\forall_{m}\exists_{\delta>0}\forall_{x\in D}\Big[a<x<a+\delta\Rightarrow f(x)<m\Big]</script> <br>
+<script type="math/tex; mode=display" id="MathJax-Element-1137">\lim_{x\rightarrow a^-}{f(x)}=-\infty\Leftrightarrow\forall_{m}\exists_{\delta>0}\forall_{x\in D}\Big[a-\delta<x<a\Rightarrow f(x)<m\Big]</script></p>
+
+
+
+<h4 id="definicje-cauchyego-granic-funkcji-w-nieskończoności">Definicje Cauchy’ego granic funkcji w nieskończoności:</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1138">\lim_{x\rightarrow+\infty}{f(x)}=L\Leftrightarrow\forall_{\varepsilon>0}\exists_{\delta}\forall_{x\in D}\Big[x>\delta\Rightarrow d_Y(f(x),L)<\varepsilon\Big]</script> <br>
+<script type="math/tex; mode=display" id="MathJax-Element-1139">\lim_{x\rightarrow-\infty}{f(x)}=L\Leftrightarrow\forall_{\varepsilon>0}\exists_{\delta}\forall_{x\in D}\Big[x<\delta\Rightarrow d_Y(f(x),L)<\varepsilon\Big]</script></p>
+
+
+
+<h4 id="definicje-cauchyego-granic-niewłaściwych-w-nieskończoności">Definicje Cauchy’ego granic niewłaściwych w nieskończoności:</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1140">\lim_{x\rightarrow+\infty}{f(x)}=+\infty\Leftrightarrow\forall_M\exists_\delta\forall_{x\in D}\Big[x>\delta\Rightarrow f(x)>M\Big]</script> <br>
+<script type="math/tex; mode=display" id="MathJax-Element-1141">\lim_{x\rightarrow+\infty}{f(x)}=-\infty\Leftrightarrow\forall_m\exists_\delta\forall_{x\in D}\Big[x>\delta\Rightarrow f(x)<m\Big]</script> <br>
+<script type="math/tex; mode=display" id="MathJax-Element-1142">\lim_{x\rightarrow-\infty}{f(x)}=+\infty\Leftrightarrow\forall_M\exists_\delta\forall_{x\in D}\Big[x<\delta\Rightarrow f(x)>M\Big]</script> <br>
+<script type="math/tex; mode=display" id="MathJax-Element-1143">\lim_{x\rightarrow-\infty}{f(x)}=-\infty\Leftrightarrow\forall_m\exists_\delta\forall_{x\in D}\Big[x<\delta\Rightarrow f(x)<m\Big]</script></p>
+
+
+
+<h2 id="ważne-granice">Ważne granice</h2>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-1144">\lim_{x\rightarrow0}{\frac{\sin{x}}{x}}=1</script></li>
+<li><script type="math/tex" id="MathJax-Element-1145">\lim_{x\rightarrow+\infty}(1+\frac{1}{x})^x=e</script></li>
+<li><script type="math/tex" id="MathJax-Element-1146">\lim_{x\rightarrow-\infty}(1+\frac{1}{x})^x=e</script></li>
+<li><script type="math/tex" id="MathJax-Element-1147">\lim_{x\rightarrow0}(1+x)^\frac{1}{x}=e</script></li>
+<li><script type="math/tex" id="MathJax-Element-1148">\forall_{a>0}\ \lim_{x\rightarrow0}\frac{a^x-1}{x}=\ln{a}</script></li>
+</ul>
+
+
+
+<h2 id="definicja-heinego-ciągłości-funkcji-w-punkcie">Definicja Heinego ciągłości funkcji w punkcie</h2>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1149">\forall_{\lbrace x_n\rbrace}\Big[\lim_{n\rightarrow\infty}x_n=a\Rightarrow\lim_{n\rightarrow\infty}f(x_n)=f(a)\Big]</script></p>
+
+
+
+<h2 id="definicja-cauchyego-ciągłości-funkcji-w-punkcie">Definicja Cauchy’ego ciągłości funkcji w punkcie</h2>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1150">\forall_{\varepsilon>0}\exists_{\delta>0}\forall_{x\in D}\Big[d_X(x,a)<\delta\Rightarrow d_Y(f(x),f(a))<\varepsilon\Big]</script></p>
+
+
+
+<h1 id="pochodne-i-różniczki">Pochodne i różniczki</h1>
+
+
+
+<h2 id="definicja-pochodnej">Definicja pochodnej</h2>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1151">f'(a)=\lim_{\Delta x\rightarrow0}\frac{f(a+\Delta x)-f(a)}{\Delta x}</script> <br>
+Jeżeli <script type="math/tex" id="MathJax-Element-1152">f'(a)</script> istnieje to funkcja jest <strong>różniczkowalna</strong>.</p>
+
+
+
+<h2 id="równanie-stycznej">Równanie stycznej</h2>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1153">y-f(a)=f'(a)(x-a)</script></p>
+
+
+
+<h2 id="równanie-normalnej">Równanie normalnej</h2>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1154">y-f(a)=-\frac{1}{f'(a)}(x-a)</script></p>
+
+
+
+<h2 id="własności-funkcji-różniczkowalnych">Własności funkcji różniczkowalnych</h2>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-1155">(cf)'=cf'</script></li>
+<li><script type="math/tex" id="MathJax-Element-1156">(f+g)'=f'+g'</script></li>
+<li><script type="math/tex" id="MathJax-Element-1157">(fg)'=f'g+fg'</script></li>
+<li><script type="math/tex" id="MathJax-Element-1158">(\frac{f}{g})'=\frac{f'g-fg'}{g^2}</script></li>
+</ul>
+
+
+
+<h2 id="pochodna-funkcji-złożonej">Pochodna funkcji złożonej</h2>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1159">(f\circ g)'(x_0)=f'(u_0)g'(x_0)</script></p>
+
+
+
+<h2 id="wzory-niektórych-pochodnych">Wzory niektórych pochodnych</h2>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-1160">(C)'=0</script></li>
+<li><script type="math/tex" id="MathJax-Element-1161">(x)'=1</script></li>
+<li><script type="math/tex" id="MathJax-Element-1162">(x^n)'=nx^{n-1}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1163">(\frac{a}{x})'= -\frac{a}{x^2}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1164">(\sqrt{x})'= \frac{1}{2\sqrt{x}}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1165">(\sqrt[n]{x})'= \frac{1}{2\sqrt[n]{x^{n-1}}}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1166">(a^x)'= a^x\ln a</script></li>
+<li><script type="math/tex" id="MathJax-Element-1167">(e^x)'= e^x</script></li>
+<li><script type="math/tex" id="MathJax-Element-1168">(\log_a{x})'= \frac{1}{x \ln a}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1169">(\ln{x})'= \frac{1}{x}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1170">(\sin{x})'= \cos{x}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1171">(\cos{x})'=-\sin{x}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1172">(\tan{x})'= \frac{1}{\cos^2{x}}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1173">(\cot{x})'= -\frac{1}{\sin^2{x}}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1174">(\arcsin{x})'= \frac{1}{\sqrt{1-x^2}}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1175">(\arccos{x})'= -\frac{1}{\sqrt{1-x^2}}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1176">(\arctan{x})'= \frac{1}{x^2+1}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1177">(\arccot{x})'= -\frac{1}{x^2+1}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1178">(\sinh{x})'= \cosh{x}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1179">(\cosh{x})'= \sinh{x}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1180">(\tanh{x})'= \frac{1}{\cosh^2{x}}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1181">(\coth{x})'= -\frac{1}{\sinh^2{x}}</script></li>
+</ul>
+
+
+
+<h2 id="własności-pochodnych">Własności pochodnych</h2>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-1182">(f(x)\cdot g(x))' = f'(x)g(x)+f(x)g'(x)</script></li>
+<li><script type="math/tex" id="MathJax-Element-1183">(\frac{f(x)}{g(x)})' = \frac{f'(x)g(x)-f(x)g'(x)}{(g(x))^2}</script></li>
+<li><script type="math/tex" id="MathJax-Element-1184">(f(g(x)))' = f'(g(x))\cdot g'(x)</script></li>
+</ul>
+
+
+
+<h2 id="różniczka">Różniczka</h2>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1185">dy=f'(x)\Delta x</script></p>
+
+
+
+<h2 id="własności-różniczek">Własności różniczek</h2>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-1186">d(cu)=cdu</script></li>
+<li><script type="math/tex" id="MathJax-Element-1187">d(u+v)=du+dv</script></li>
+<li><script type="math/tex" id="MathJax-Element-1188">d(uv)=vdu+udv</script></li>
+<li><script type="math/tex" id="MathJax-Element-1189">d\frac{u}{v}=\frac{vdu-udv}{v^2}</script></li>
+</ul>
+
+
+
+<h2 id="pochodna-funkcji-w-postaci-parametrycznej">Pochodna funkcji w postaci parametrycznej</h2>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1190">f'(x)=\frac{dy}{dx}=\frac{\frac{dy}{dt}}{\frac{dx}{dt}}=\frac{y'(t)}{x'(t)}=\frac{\dot{x}}{\dot{y}}</script></p>
+
+
+
+<h2 id="pochodne-wyższych-rzędów">Pochodne wyższych rzędów</h2>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1191">f^{(n)}=(f^{(n-1)})'=\frac{d^nf}{dx^n}</script></p>
+
+
+
+<h2 id="różniczki-wyższych-rzędów">Różniczki wyższych rzędów</h2>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1192">y^{(n)}=\frac{d^ny}{dx^n}</script></p>
+
+
+
+<h1 id="zastosowania-pochodnej">Zastosowania pochodnej</h1>
+
+
+
+<h2 id="twierdzenie-fermata">Twierdzenie Fermata</h2>
+
+<p>Niech <script type="math/tex" id="MathJax-Element-1193">f</script> będzie funkcją określoną na <script type="math/tex" id="MathJax-Element-1194">(a,b)</script>, która osiąga globalne minimum lub maksimum w punkcie <script type="math/tex" id="MathJax-Element-1195">c\in(a,b)</script>. Jeżeli <script type="math/tex" id="MathJax-Element-1196">f</script> jest różniczkowalna w <script type="math/tex" id="MathJax-Element-1197">c</script>, to <script type="math/tex" id="MathJax-Element-1198">f'(c)=0</script>.</p>
+
+<p><strong>Dowód:</strong> <br>
+<script type="math/tex" id="MathJax-Element-1199">1^\circ</script> <br>
+<script type="math/tex" id="MathJax-Element-1200">(f(c)=M\Leftrightarrow\forall_x\ \ f(x)≤M)\Rightarrow\forall_x\ \ f(x)-f(c)≤0</script> <br>
+<script type="math/tex" id="MathJax-Element-1201">f'(c)=\lim_{x\rightarrow c}\frac{f(x)-f(c)}{x-c}\ \ </script> istnieje <br>
+<script type="math/tex" id="MathJax-Element-1202">\lim_{x\rightarrow c^+}\frac{f(x)-f(c)}{x-c}≤0</script> <br>
+<script type="math/tex" id="MathJax-Element-1203">\lim_{x\rightarrow c^-}\frac{f(x)-f(c)}{x-c}≥0</script> <br>
+więc <script type="math/tex" id="MathJax-Element-1204">f'(c)=0</script> <br>
+<script type="math/tex" id="MathJax-Element-1205">2^\circ</script> <br>
+<script type="math/tex" id="MathJax-Element-1206">f(c)=m</script> - analogicznie</p>
+
+
+
+<h2 id="twierdzenie-rollea">Twierdzenie Rolle’a</h2>
+
+<p>Jeżeli funkcja <script type="math/tex" id="MathJax-Element-1207">f</script> jest ciągła w <script type="math/tex" id="MathJax-Element-1208">\langle a,b\rangle</script>, różniczkowalna w <script type="math/tex" id="MathJax-Element-1209">(a,b)</script> i <script type="math/tex" id="MathJax-Element-1210">f(a)=f(b)</script> to istnieje taki punkt <script type="math/tex" id="MathJax-Element-1211">c\in(a,b)</script>, że <script type="math/tex" id="MathJax-Element-1212">f'(c)=0</script>.</p>
+
+<p><strong>Dowód:</strong> <br>
+Na podstawie Fermata</p>
+
+
+
+<h2 id="twierdzenie-lagrangea">Twierdzenie Lagrange’a</h2>
+
+<p>Jeżeli funkcja <script type="math/tex" id="MathJax-Element-1213">f</script> jest ciągła w <script type="math/tex" id="MathJax-Element-1214">\langle a,b\rangle</script> i różniczkowalna w <script type="math/tex" id="MathJax-Element-1215">(a,b)</script>, to istnieje taki punkt <script type="math/tex" id="MathJax-Element-1216">c\in(a,b)</script>, że <script type="math/tex" id="MathJax-Element-1217">f'(c)=\frac{f(b)-f(a)}{b-a}</script></p>
+
+<p><strong>Dowód:</strong> <br>
+Zastosować twierdzenie Rolle’a do funkcji <script type="math/tex; mode=display" id="MathJax-Element-1218">\varphi(x)=\frac{f(b)-f(a)}{b-a}(x-a)-f(x)+f(a)</script></p>
+
+
+
+<h2 id="wnioski-z-twierdzenia-lagrangea">Wnioski z twierdzenia Lagrange’a</h2>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-1219">\Big[\forall_{x\in(a,b)}f'(x)=0\Big]\Rightarrow f(x)=const</script></li>
+<li><script type="math/tex" id="MathJax-Element-1220">\Big[\forall_{x\in(a,b)}f'(x)=g'(x)\Big]\Rightarrow\exists_A\forall_X\ \ f(x)=g(x)+A</script></li>
+<li><script type="math/tex" id="MathJax-Element-1221">\Big[\forall_{x\in(a,b)}f'(x)=0\Big]\Rightarrow f\ </script>jest rosnąca w <script type="math/tex" id="MathJax-Element-1222">(a,b)</script></li>
+<li><script type="math/tex" id="MathJax-Element-1223">\Big[\forall_{x\in(a,b)}f'(x)=0\Big]\Rightarrow f\ </script>jest malejąca w <script type="math/tex" id="MathJax-Element-1224">(a,b)</script></li>
+</ul>
+
+
+
+<h2 id="twierdzenie-cauchyego">Twierdzenie Cauchy’ego</h2>
+
+<p>Jeżeli funkcje <script type="math/tex" id="MathJax-Element-1225">f</script> i <script type="math/tex" id="MathJax-Element-1226">g</script> są ciągłe w <script type="math/tex" id="MathJax-Element-1227">\langle a,b\rangle</script>, różniczkowalne w <script type="math/tex" id="MathJax-Element-1228">(a,b)</script> i <script type="math/tex" id="MathJax-Element-1229">g'(x)\not=0</script> dla <script type="math/tex" id="MathJax-Element-1230">x\in(a,b)</script>, to istnieje taki punkt <script type="math/tex" id="MathJax-Element-1231">c\in(a,b)</script>, że <script type="math/tex; mode=display" id="MathJax-Element-1232">\frac{f'(c)}{g'(c)}=\frac{f(b)-f(a)}{g(b)-g(a)}</script></p>
+
+<p><strong>Dowód:</strong> <br>
+Zastosować twierdzenie Rolle’a do funkcji <script type="math/tex; mode=display" id="MathJax-Element-1233">\varphi(x)=\frac{f(b)-f(a)}{g(b)-g(a)}(g(x)-g(a))-f(x)+f(a)</script></p>
+
+
+
+<h2 id="wzór-taylora">Wzór Taylora</h2>
+
+<p>Jeżeże <script type="math/tex" id="MathJax-Element-1234">f\in C^{n-1}</script> w <script type="math/tex" id="MathJax-Element-1235">\langle x_0,x\rangle</script> i <script type="math/tex" id="MathJax-Element-1236">f^{n}</script> istnieje w <script type="math/tex" id="MathJax-Element-1237">(x_0,x)</script>, to istnieje taki punkt <script type="math/tex" id="MathJax-Element-1238">c</script> ściśle między <script type="math/tex" id="MathJax-Element-1239">x_0</script> i <script type="math/tex" id="MathJax-Element-1240">x</script>, że <script type="math/tex; mode=display" id="MathJax-Element-1241">f(x)=f(x_0)+\frac{f'(x_0)}{1!}(x-x_0)+\frac{f''(x_0)}{2!}(x-x_0)^2+\frac{f'''(x_0)}{3!}(x-x_0)^3+</script> <br>
+<script type="math/tex; mode=display" id="MathJax-Element-1242">...+\frac{f^{n-1}(x_0)}{(n-1)!}(x-x_0)^{n-1}+\frac{f^{(n)}(c)}{n!}(x-x_0)^n</script></p>
+
+<p>Dla <script type="math/tex" id="MathJax-Element-1243">x_0=0</script> jest to <em>wzór Maclaurina</em></p>
+
+
+
+<h2 id="ekstrema">Ekstrema</h2>
+
+<p>Funkcja <script type="math/tex" id="MathJax-Element-1244">f</script> ma lokalne minimum w <script type="math/tex" id="MathJax-Element-1245">a</script> wtedy i tylko wtedy, gdy <script type="math/tex; mode=display" id="MathJax-Element-1246">\exists_{\delta>0}\forall_{x\in(a-\delta,a)\cup(a,a+\delta)}\ \ f(x)>f(a)</script> <br>
+Funkcja <script type="math/tex" id="MathJax-Element-1247">f</script> ma lokalne maksimum w <script type="math/tex" id="MathJax-Element-1248">a</script> wtedy i tylko wtedy, gdy <script type="math/tex; mode=display" id="MathJax-Element-1249">\exists_{\delta>0}\forall_{x\in(a-\delta,a)\cup(a,a+\delta)}\ \ f(x)<f(a)</script> <br>
+Wartość <script type="math/tex" id="MathJax-Element-1250">f(a)</script> nazywa się <em>ekstremum lokalnym</em> funkcji</p>
+
+
+
+<h2 id="wypukłość">Wypukłość</h2>
+
+<p>//tbd…</p>
+
+
+
+<h2 id="reguła-de-lhospitala">Reguła de l’Hospitala</h2>
+
+<p>Warunki: </p>
+
+<ol>
+<li><script type="math/tex" id="MathJax-Element-1251">f</script>, <script type="math/tex" id="MathJax-Element-1252">g</script> są ciągłe w <script type="math/tex" id="MathJax-Element-1253">(a,b\rangle</script></li>
+<li><script type="math/tex" id="MathJax-Element-1254">f</script>, <script type="math/tex" id="MathJax-Element-1255">g</script> są różniczkowalne w <script type="math/tex" id="MathJax-Element-1256">(a,b)</script></li>
+<li><script type="math/tex" id="MathJax-Element-1257">g(x)\not=0</script> i <script type="math/tex" id="MathJax-Element-1258">g'(x)\not=0</script> w pewnym otoczeniu punktu <script type="math/tex" id="MathJax-Element-1259">a</script></li>
+<li><script type="math/tex" id="MathJax-Element-1260">\lim_{x\rightarrow a^+}f(x)=\lim_{x\rightarrow a^+}g(x)=0</script></li>
+<li><script type="math/tex" id="MathJax-Element-1261">\lim_{x\rightarrow a^+}\frac{f'(x)}{g'(x)}</script> istnieje (właściwa lub niewłaściwa).</li>
+</ol>
+
+<p>Wówczas <script type="math/tex" id="MathJax-Element-1262">\lim_{x\rightarrow a^+}\frac{f(x)}{g(x)}=\lim_{x\rightarrow a^+}\frac{f'(x)}{g'(x)}</script></p>
+
+
+
+<h2 id="badanie-przebiegu-zmienności-funkcji">Badanie przebiegu zmienności funkcji</h2>
+
+<ol>
+<li>Dziedzina; punkty przecięcia z osiami układu współrzędnych; parzystość, nieparzystość, okresowość</li>
+<li>Granice i asymptoty</li>
+<li>Analiza pierwszej pochodnej (monotoniczność, ekstrema)</li>
+<li>Analiza drugiej pochodnej (wypukłość, punkty przegięcia krzywej)</li>
+<li>Tabelka przebiegu zmienności</li>
+<li>Wykres</li>
+</ol>
+
+
+
+<h1 id="całka-nieoznaczona">Całka nieoznaczona</h1>
+
+<p><script type="math/tex" id="MathJax-Element-1263">\int f(x)dx=F(x)+C</script></p>
+
+
+
+<h2 id="wzory-wybranych-całek">Wzory wybranych całek</h2>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-1264">\int0dx=C</script></li>
+<li><script type="math/tex" id="MathJax-Element-1265">\int1dx=\int dx=x+C</script></li>
+<li><script type="math/tex" id="MathJax-Element-1266">\int x^sdx=\frac{x^{s+1}}{s+1}+C</script></li>
+<li><script type="math/tex" id="MathJax-Element-1267">\int\frac{1}{x}dx=\int\frac{dx}{x}=\ln|x|+C</script></li>
+<li><script type="math/tex" id="MathJax-Element-1268">\int\frac{1}{1+x^2}dx=\arctan{x}+C</script></li>
+</ul></div></body>
+</html>
