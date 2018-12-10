@@ -23,10 +23,11 @@ pre {background-color: rgba(128,128,128,0.05);}
 }</code></pre>
 
 <p>Plik źródłowy w C++ <em>musi</em> zawierać jedynie definicję funkcji <code>main()</code>, choć może zawierać też dowolną ilość innych funkcji, dyrektyw preprocesora, oraz definicji zmiennych globalnych. <br>
-Funkcja main alternatywnie może mieć postać <code>int main() {...}</code>, parametry <code>argc</code> i <code>argv</code> służą do obsługi parametrów przekazanych przez system operacyjny z konsoli. <br>
+Funkcja <code>main()</code> alternatywnie może mieć postać <code>int main() {...}</code>, parametry <code>argc</code> i <code>argv</code> służą do obsługi parametrów przekazanych przez system operacyjny z konsoli. <br>
 Polecenie <code>return 0;</code> nie jest niezbędne (w C++, w C jest niezbędne) ale jest to wyjątek: <code>main()</code> to jedyna funkcja zwracająca <code>int</code>, w której nie musi wogóle pojawić się <code>return</code>, kompilator założy wtedy, że takie polecenie znajduje się po ostatniej linii kodu. <br>
 Można po bloku <code>#include</code>, a przed definicją <code>main()</code>, wydać dyrektywę <code>using namespace std;</code>, co pozwala pomijać przedrostek <code>std::</code>. <br>
-Analogicznie można dowolną inną przestrzeń nazw uczynić wywoływaną domyślnie.</p>
+Dyrektywa <code>using namespace</code> informuje kompilator, że jeżeli natrafi na nieznany identyfikator, powinien próbować go znaleźć w przestrzeni nazw <code>std</code>. <br>
+Analogicznie można dowolną inną przestrzeń nazw uczynić przeszukiwaną domyślnie.</p>
 
 <h1 id="podstawowe-typy-danych">Podstawowe typy danych</h1>
 
@@ -35,24 +36,41 @@ Analogicznie można dowolną inną przestrzeń nazw uczynić wywoływaną domyś
 Definicja zmiennej; <br>
 <code>&lt;typ&gt; &lt;identyfikator&gt; = &lt;wartość&gt;;</code> lub <code>&lt;typ&gt; &lt;identyfikator&gt;[&lt;rozmiar&gt;] = &lt;wartość&gt;;</code> <br>
 <code>&lt;typ&gt;</code> może być nazwą klasy. <br>
-Zmienna może mieć kilka deklaracji ale tylko jedną definicję!</p>
+Dany identyfikator nie może być zdefiniowany więcej niż raz in the same scope! (nie mam pomysłu jak przełożyć scope na polski)</p>
 
+<p>Przykłady:</p>
 
+<pre class="prettyprint"><code class="language-C++ hljs cpp"><span class="hljs-keyword">int</span> a; <span class="hljs-comment">// deklaracja zmiennej typu int o identyfikatorze a</span>
+<span class="hljs-comment">//int a; // blad - ponowna deklaracja zmiennej a</span>
+{
+    <span class="hljs-keyword">int</span> a; <span class="hljs-comment">// dozwolone - different scope</span>
+}
+<span class="hljs-keyword">double</span> p; <span class="hljs-comment">// deklaracja zmiennej typu double o identyfikatorze p</span>
+<span class="hljs-comment">//char a; // blad - zmienna o danej nazwie nie moze nagle zmienic typu</span>
+<span class="hljs-keyword">double</span> x = <span class="hljs-number">3.14</span>; <span class="hljs-comment">// definicja zmiennej x z przypisaniem wartosci 3.14</span>
+<span class="hljs-comment">//double x = 1.2; // blad - ponowna definicja zmiennej x</span>
+{
+    <span class="hljs-keyword">double</span> x = <span class="hljs-number">1.2</span>; <span class="hljs-comment">// znow dozwolone</span>
+    <span class="hljs-comment">//tutaj x ma wartosc 1.2</span>
+}
+<span class="hljs-comment">//tutaj x ma wartosc 3.14 bo inna zmienna x jest "in scope"</span>
+<span class="hljs-keyword">float</span> arr[<span class="hljs-number">10</span>]; <span class="hljs-comment">// deklaracja tablicy 10 zmiennych typu float, indeksy od 0 do 9</span>
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> word; <span class="hljs-comment">// deklaracja obiektu klasy std::string o identyfikatorze word</span></code></pre>
 
 <h2 id="typy">Typy</h2>
 
 <ul>
 <li><code>int</code> - zmienna całkowitoliczbowa o zakresie wartości od -2147483648 do 2147483647</li>
 <li><code>unsigned int</code> - zmienna całkowitoliczbowa o zakresie wartości od 0 do 4294967295</li>
-<li><code>long long int</code> - zmienna całkowitoliczbowa o zakresie wartości od -9223372036854775808 to 9223372036854775807</li>
+<li><code>long long int</code> - zmienna całkowitoliczbowa o zakresie wartości od -9223372036854775808 do 9223372036854775807</li>
 <li><code>float</code> - zmienna zmiennoprzecinkowa; obliczenia na zmiennych tego typu są niedokładne.</li>
-<li><code>double</code> - zmienna zmiennoprzecinkowa o zakresie wartości od <script type="math/tex" id="MathJax-Element-429">1.7\cdot e^{-308}</script> do <script type="math/tex" id="MathJax-Element-430">1.7\cdot e^{308}</script>; bezpieczniej jest używać <code>double</code> zamiast <code>float</code> ze względu na większą (podwójną) precyzję obliczeń; zachować najwyższą ostrożność przy operacjach logicznych oraz przy używaniu jako warunków w instrukcjach sterujących, gdyż zmienne typu <code>float</code> i <code>double</code> mogą dawać niedokładne wyniki, np. <code>sqrt(4) == 2</code> może dać wynik <code>false</code>. <code>double</code> jest domyślnym typem zmiennoprzecinkowym w C++, więc wszystkie stałe dosłowne w kodzie będą własnie tego typu.</li>
+<li><code>double</code> - zmienna zmiennoprzecinkowa o zakresie wartości od <script type="math/tex" id="MathJax-Element-461">1.7\cdot e^{-308}</script> do <script type="math/tex" id="MathJax-Element-462">1.7\cdot e^{308}</script>; bezpieczniej jest używać <code>double</code> zamiast <code>float</code> ze względu na większą (podwójną) precyzję obliczeń; zachować najwyższą ostrożność przy operacjach logicznych oraz przy używaniu jako warunków w instrukcjach sterujących, gdyż zmienne typu <code>float</code> i <code>double</code> mogą dawać niedokładne wyniki, np. <code>sqrt(4) == 2</code> może dać wynik <code>false</code>. <code>double</code> jest domyślnym typem zmiennoprzecinkowym w C++, więc wszystkie stałe dosłowne w kodzie będą własnie tego typu.</li>
 <li><code>char</code> - zmienna znakowa; zawiera wartości z zakresu od -128 do 127; te wartości są zazwyczaj traktowane jako znaki w kodzie ASCII; zachować ostrożność przy porównywaniu/przypisywaniu!! wartość do takiej zmiennej przypisujemy w pojedynczych apostrofach <code>char znak = 'b';</code> lub jako liczbę <code>char znak = 36;</code> (znak $ ma kod 36), ale nie w cudzysłowach.</li>
 <li><code>bool</code> - zmienna true/false; może zawierać tylko 0 lub 1; przy porównywaniu lub przypisaniu można użyć słów kluczowych <code>true</code> i <code>false</code></li>
 <li>C-string - nie jest de facto typem, ale często jest tak traktowany. C-string jest tablicą <code>char</code>-ów zakończoną znakiem NULL (kod 0). <code>char znak = "b";</code> nie jest poprawne ponieważ <code>"b"</code> jest własnie C-stringiem - tablicą <strong>dwóch</strong> <code>char</code>-ów. W tej tablicy w komórce 0 jest znak ‘b’ a w komórce 1 znak NULL. Pochodzą z języka C i operować na nich można funkcjami z biblioteki <code>&lt;cstring&gt;</code>, ich użycie w C++ nie jest wskazane ze względu na istnienie klasy <code>std::string</code>.</li>
 </ul>
 
-<p>Każdy typ można poprzedzić słowem <code>unsigned</code> uzyskując zakres <code>0 do n</code> zamiast <code>-n/2 do n/2-1</code>. <br>
+<p>Każdy typ (ale nie klase) można poprzedzić słowem <code>unsigned</code> uzyskując zakres <code>0 do n</code> zamiast <code>-n/2 do n/2-1</code>. Przeciwne do niego jest słowo kluczowe <code>signed</code>. <br>
 Podane tu rozmiary typów są przykładowe, niektóre kompilatory używają innej ilości pamięci dla tych typów.</p>
 
 <h2 id="klasy">Klasy</h2>
@@ -67,6 +85,8 @@ Podane tu rozmiary typów są przykładowe, niektóre kompilatory używają inne
 <li>pojedynczy znak można otrzymać na dwa sposoby: metodą <code>at()</code> - <code>std::cout &lt;&lt; slowo.at(2);</code> lub operatorem <code>[]</code> - <code>std::cout &lt;&lt; slowo[2];</code> tylko metoda <code>at()</code> sprawdza czy pożądany indeks faktycznie znajduje się w granicach stringu. jeżeli nie - rzuca wyjątek <code>std::out_of_range</code></li>
 </ul>
 
+
+
 <h3 id="kontener-o-stałym-rozmiarze-c11-stdarraytyp-rozmiar">Kontener o stałym rozmiarze (C++11) - <code>std::array&lt;typ, rozmiar&gt;</code></h3>
 
 <ul>
@@ -74,6 +94,8 @@ Podane tu rozmiary typów są przykładowe, niektóre kompilatory używają inne
 <li>przykładowa definicja <code>std::array&lt;int, 3&gt; tab = {1,2,3};</code></li>
 <li>pojedynczy element można otrzymać na dwa sposoby: metodą <code>at()</code> - <code>std::cout &lt;&lt; tab.at(2);</code> lub operatorem <code>[]</code> - <code>std::cout &lt;&lt; tab[2];</code>, tylko metoda <code>at()</code> sprawdza czy pożądany indeks faktycznie znajduje się w granicach kontenera. jeżeli nie - rzuca wyjątek <code>std::out_of_range</code></li>
 </ul>
+
+
 
 <h3 id="kontener-o-zmiennym-rozmiarze-stdvectortyp">Kontener o zmiennym rozmiarze - <code>std::vector&lt;typ&gt;</code></h3>
 
@@ -104,7 +126,7 @@ Podane tu rozmiary typów są przykładowe, niektóre kompilatory używają inne
 
 <ul>
 <li>0 - NULL</li>
-<li>1 do 31 - znaki specjalne(nowa linia, tabulator…)</li>
+<li>1 do 31 - znaki specjalne(nowa linia, tabulator, powrót karetki…)</li>
 <li>32 - spacja</li>
 <li>33 do 47 - interpunkcja</li>
 <li>48 do 57 - cyfry od 0 do 9</li>
@@ -115,8 +137,6 @@ Podane tu rozmiary typów są przykładowe, niektóre kompilatory używają inne
 <li>123 do 126 - więcej więcej więcej interpunkcji</li>
 <li>127 - znak(klawisz) delete</li>
 </ul>
-
-
 
 <h1 id="wskaźniki-i-dynamiczne-zarządzanie-pamięcią">Wskaźniki i dynamiczne zarządzanie pamięcią</h1>
 
@@ -184,16 +204,45 @@ std::cout &lt;&lt; <span class="hljs-variable">*wsk</span>;</code></pre>
 <pre class="prettyprint"><code class="language-C++ hljs r">struct samochod{<span class="hljs-keyword">...</span>};
 int main()
 {
-    struct sam1;
+    samochod sam1;
     sam1.marka=<span class="hljs-string">"Skoda"</span>;
     sam1.waga=<span class="hljs-string">"1200"</span>;
-    struct sam2={<span class="hljs-string">"Fiat"</span>,<span class="hljs-string">"126p"</span>,<span class="hljs-string">"XYZ12AB"</span>,<span class="hljs-number">800</span>,<span class="hljs-number">90</span>};
+    samochod sam2={<span class="hljs-string">"Fiat"</span>,<span class="hljs-string">"126p"</span>,<span class="hljs-string">"XYZ12AB"</span>,<span class="hljs-number">800</span>,<span class="hljs-number">90</span>};
     std::cout &lt;&lt; sam2.model;
 }</code></pre>
 
 <p>Jeżeli używamy wskaźnika na strukturę, operator kropki zastępujemy strzałką <code>-&gt;</code></p>
 
+<h1 id="logika">Logika</h1>
 
+<p>Praktycznie każde wyrażenie w C++ da się ocenić jako wyrażenie logiczne, co bywa mylące. Jest to spowodowane dwoma faktami: tym że każdy operator w C++ zwraca jakąś wartość, oraz tym że kompilator oceni każdą liczbę jako wyrażenie logiczne bez mrugnięcia okiem. Co za tym idzie:</p>
+
+<pre class="prettyprint"><code class="language-C++ hljs cs"><span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>) <span class="hljs-comment">//true jest jedoznaczne z 1 więc jest prawdziwe - petla nieskonczona</span>
+    ;
+
+<span class="hljs-keyword">while</span>(<span class="hljs-number">3.14</span>) <span class="hljs-comment">//3.14 nie jest zerem więc jest prawdziwe - pętla nieskończona</span>
+    ;
+
+<span class="hljs-keyword">int</span> t = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">while</span>(t--) <span class="hljs-comment">//petla wykona sie 10 razy...</span>
+    ;</code></pre>
+
+<p>Wybrane operatory: <br>
+(operatory w C++ są tak naprawdę funkcjami i mają takie własnie nazwy)</p>
+
+<ul>
+<li><code>operator+</code> - dwuargumentowy, do pierwszego argumentu dodaje drugi i zwraca nową wartość pierwszego</li>
+<li><code>operator-</code>, <code>operator-*</code> oraz <code>operator/</code>- dwuargumentowe, działają analogicznie jak <code>operator+</code> i zwracają nową wartość pierwszego argumentu</li>
+<li><code>operator=</code> - dwuargumentowy, pierwszy musi być tzw. l-value czyli w jakiejś postaci miejscem w pamięci, np. nazwą zmiennej, drugi może być czymkolwiek. Przypisuje do podanej komórki pamięci wartość drugiego argumentu i zwraca tą właśnie wartość, więc <code>if(a = 5)</code> jest zawsze prawdziwe - to po prostu <code>if(5)</code></li>
+<li><code>operator+=</code> - dwuargumentowy, podobny do <code>operator=</code> ale dodaje drugi argument do tego co juz jest w pierwszym. Zwraca nową wartość pierwszego.</li>
+<li><code>operator-=</code> - dwuargumentowy, analogiczny do <code>operator+=</code> tylko odejmuje.</li>
+<li><code>operator==</code> - dwuargumentowy, porównuje ze sobą oba argumenty i jeśli są równoważne zwraca <code>true</code> w przeciwnym razie <code>false</code>. Argumenty te nie zawsze są liczbami - mogą być jakimś wyrażeniem np. <code>if( (a = 5) == (a = 10) )</code> najpierw wykona te dwa przypisania by poznać ich wartość a dopiero potem porówna to co one zwrócą - czyli 5 z 10</li>
+<li><code>operator&lt;=</code>, <code>operator&gt;=</code>, <code>operator&lt;</code> oraz <code>operator&gt;</code> - dwuargumentowe, wykonują arytmetyczne porównanie i zwracają wartość <code>true</code> lub <code>false</code></li>
+<li><code>operator&amp;&amp;</code> oraz <code>operator||</code> - logiczne OR oraz AND, obowiązują te same zasady co dla <code>operator==</code>, zwracają wartość <code>true</code> lub <code>false</code></li>
+<li><code>operator&amp;</code> oraz <code>operator|</code> - dwuargumentowe, bitowe OR oraz AND, zwracają wartość pierwszego argumentu po wykonaniu działania. Nie mylić z logicznym OR i AND! <code>if(2 &amp; 4)</code> jest fałszywe bo <code>2 &amp; 4</code> zwraca 0, a <code>2 &amp;&amp; 4</code> zwraca <code>true</code>. <code>if(2 | 4)</code> jest prawdziwe bo <code>2 | 4</code> zwraca 6, podczas <code>2 || 4</code> zwraca <code>true</code> (1).</li>
+<li><code>operator^</code> - dwuargumentowy, bitowy XOR, nie ma odpowiednika logicznego. Zwraca liczbę.</li>
+<li><code>operator&amp;&amp;</code></li>
+</ul>
 
 <h1 id="instrukcje-sterujące">Instrukcje sterujące</h1>
 
@@ -230,6 +279,8 @@ int main()
 </ul>
 
 <p>Warunek jest fałszywy jeżeli wartość liczbowa wyrażenia to zero, a prawdziwy dla każdej innej wartości. Wyrażenie jest obliczane zawsze od lewej strony i tylko tak długo jak warunek nie jest fałszywy tzn. </p>
+
+
 
 <pre class="prettyprint"><code class="language-C++ hljs r"><span class="hljs-keyword">if</span>(a==<span class="hljs-number">0</span> || i++ || j++ || k++)
 {
@@ -314,8 +365,6 @@ fin.open(<span class="hljs-string">"plik.txt"</span>);
 <span class="hljs-keyword">while</span>(warunek);</code></pre>
 
 <p>Warunek jest sprawdzany <strong>po</strong> każdym przebiegu pętli według takich samych zasad jak <code>if()</code>.</p>
-
-
 
 <h1 id="funkcje">Funkcje</h1>
 
