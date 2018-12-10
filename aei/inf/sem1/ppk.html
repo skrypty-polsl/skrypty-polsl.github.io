@@ -12,23 +12,21 @@ blockquote {background-color: rgba(128,128,128,0.05);}
 pre {background-color: rgba(128,128,128,0.05);}
 </style>
 </head>
-<body><div class="container"><h1 id="szkielet-programu-w-c">Szkielet programu w C++</h1>
+<body><div class="container"><h1 id="szkielet-kodu-w-c">Szkielet kodu w C++</h1>
 
+<pre class="prettyprint"><code class="language-C++ hljs vala"><span class="hljs-preprocessor">#include &lt;nazwa_biblioteki&gt;</span>
 
-
-<pre class="prettyprint"><code class="language-C++ hljs vala"><span class="hljs-preprocessor">#include &lt;iostream&gt;</span>
-
-<span class="hljs-keyword">int</span> main(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>* argv[])
+<span class="hljs-keyword">int</span> main(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])
 {
     <span class="hljs-comment">//code goes here...</span>
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }</code></pre>
 
-<p>Funkcja main alternatywnie może mieć postać <code>int main() {...}</code>. <br>
-Polecenie <code>return 0;</code> nie jest wymagane. <br>
-Można po bloku <code>#include</code> wydać dyrektywę <code>using namespace std;</code>, co pozwala pomijać przedrostek <code>std::</code></p>
-
-
+<p>Plik źródłowy w C++ <em>musi</em> zawierać jedynie definicję funkcji <code>main()</code>, choć może zawierać też dowolną ilość innych funkcji, dyrektyw preprocesora, oraz definicji zmiennych globalnych. <br>
+Funkcja main alternatywnie może mieć postać <code>int main() {...}</code>, parametry <code>argc</code> i <code>argv</code> służą do obsługi parametrów przekazanych przez system operacyjny z konsoli. <br>
+Polecenie <code>return 0;</code> nie jest niezbędne (w C++, w C jest niezbędne) ale jest to wyjątek: <code>main()</code> to jedyna funkcja zwracająca <code>int</code>, w której nie musi wogóle pojawić się <code>return</code>, kompilator założy wtedy, że takie polecenie znajduje się po ostatniej linii kodu. <br>
+Można po bloku <code>#include</code>, a przed definicją <code>main()</code>, wydać dyrektywę <code>using namespace std;</code>, co pozwala pomijać przedrostek <code>std::</code>. <br>
+Analogicznie można dowolną inną przestrzeń nazw uczynić wywoływaną domyślnie.</p>
 
 <h1 id="podstawowe-typy-danych">Podstawowe typy danych</h1>
 
@@ -39,6 +37,8 @@ Definicja zmiennej; <br>
 <code>&lt;typ&gt;</code> może być nazwą klasy. <br>
 Zmienna może mieć kilka deklaracji ale tylko jedną definicję!</p>
 
+
+
 <h2 id="typy">Typy</h2>
 
 <ul>
@@ -46,36 +46,36 @@ Zmienna może mieć kilka deklaracji ale tylko jedną definicję!</p>
 <li><code>unsigned int</code> - zmienna całkowitoliczbowa o zakresie wartości od 0 do 4294967295</li>
 <li><code>long long int</code> - zmienna całkowitoliczbowa o zakresie wartości od -9223372036854775808 to 9223372036854775807</li>
 <li><code>float</code> - zmienna zmiennoprzecinkowa; obliczenia na zmiennych tego typu są niedokładne.</li>
-<li><code>double</code> - zmienna zmiennoprzecinkowa o zakresie wartości od <script type="math/tex" id="MathJax-Element-9">1,7\cdot e^{-308}</script> do <script type="math/tex" id="MathJax-Element-10">1,7\cdot e^{308}</script>; lepiej jest używać <code>double</code> zamiast <code>float</code> ze względu na większą precyzję obliczeń; zachować najwyższą ostrożność przy operacjach logicznych oraz przy używaniu jako warunków w instrukcjach sterujących, gdyż zmienne typu <code>float</code> i <code>double</code> mogą dawać niedokładne wyniki, np. <code>sqrt(4) == 2</code> może dać wynik <code>false</code>.</li>
-<li><code>char</code> - zmienna znakowa; zawiera wartości z zakresu od -128 do 127; te wartości są zazwyczaj traktowane jako znaki w kodzie ASCII; zachować ostrożność przy porównywaniu/przypisywaniu!! wartość do takiej zmiennej wpisujemy w pojedynczych apostrofach <code>char znak = 'b';</code></li>
+<li><code>double</code> - zmienna zmiennoprzecinkowa o zakresie wartości od <script type="math/tex" id="MathJax-Element-429">1.7\cdot e^{-308}</script> do <script type="math/tex" id="MathJax-Element-430">1.7\cdot e^{308}</script>; bezpieczniej jest używać <code>double</code> zamiast <code>float</code> ze względu na większą (podwójną) precyzję obliczeń; zachować najwyższą ostrożność przy operacjach logicznych oraz przy używaniu jako warunków w instrukcjach sterujących, gdyż zmienne typu <code>float</code> i <code>double</code> mogą dawać niedokładne wyniki, np. <code>sqrt(4) == 2</code> może dać wynik <code>false</code>. <code>double</code> jest domyślnym typem zmiennoprzecinkowym w C++, więc wszystkie stałe dosłowne w kodzie będą własnie tego typu.</li>
+<li><code>char</code> - zmienna znakowa; zawiera wartości z zakresu od -128 do 127; te wartości są zazwyczaj traktowane jako znaki w kodzie ASCII; zachować ostrożność przy porównywaniu/przypisywaniu!! wartość do takiej zmiennej przypisujemy w pojedynczych apostrofach <code>char znak = 'b';</code> lub jako liczbę <code>char znak = 36;</code> (znak $ ma kod 36), ale nie w cudzysłowach.</li>
 <li><code>bool</code> - zmienna true/false; może zawierać tylko 0 lub 1; przy porównywaniu lub przypisaniu można użyć słów kluczowych <code>true</code> i <code>false</code></li>
+<li>C-string - nie jest de facto typem, ale często jest tak traktowany. C-string jest tablicą <code>char</code>-ów zakończoną znakiem NULL (kod 0). <code>char znak = "b";</code> nie jest poprawne ponieważ <code>"b"</code> jest własnie C-stringiem - tablicą <strong>dwóch</strong> <code>char</code>-ów. W tej tablicy w komórce 0 jest znak ‘b’ a w komórce 1 znak NULL. Pochodzą z języka C i operować na nich można funkcjami z biblioteki <code>&lt;cstring&gt;</code>, ich użycie w C++ nie jest wskazane ze względu na istnienie klasy <code>std::string</code>.</li>
 </ul>
 
-<p>Każdy typ można poprzedzić słowem <code>unsigned</code> uzyskując zakres <code>0 do n</code> zamiast <code>-n/2 do n/2-1</code>.</p>
+<p>Każdy typ można poprzedzić słowem <code>unsigned</code> uzyskując zakres <code>0 do n</code> zamiast <code>-n/2 do n/2-1</code>. <br>
+Podane tu rozmiary typów są przykładowe, niektóre kompilatory używają innej ilości pamięci dla tych typów.</p>
 
 <h2 id="klasy">Klasy</h2>
 
 
 
-<h3 id="stdstring-klasa-służąca-do-przechowywania-łańcuchów-znaków"><code>std::string</code> - klasa służąca do przechowywania łańcuchów znaków</h3>
+<h3 id="łańcuch-znaków-stdstring">Łańcuch znaków - <code>std::string</code></h3>
 
 <ul>
 <li>wymaga dołączenia biblioteki <code>&lt;string&gt;</code></li>
 <li>wartość do niej wpisujemy w cudzysłowiu <code>std::string slowo = "klucz";</code></li>
-<li>pojedynczy znak można otrzymać na dwa sposoby: metodą <code>at()</code> - <code>std::cout &lt;&lt; slowo.at(2);</code> lub operatorem <code>[]</code> - <code>std::cout &lt;&lt; slowo[2];</code> tylko metoda <code>at()</code> sprawdza czy pożądany indeks faktycznie znajduje się w stringu. jeżeli nie - rzuca wyjątek <code>std::out_of_range</code></li>
+<li>pojedynczy znak można otrzymać na dwa sposoby: metodą <code>at()</code> - <code>std::cout &lt;&lt; slowo.at(2);</code> lub operatorem <code>[]</code> - <code>std::cout &lt;&lt; slowo[2];</code> tylko metoda <code>at()</code> sprawdza czy pożądany indeks faktycznie znajduje się w granicach stringu. jeżeli nie - rzuca wyjątek <code>std::out_of_range</code></li>
 </ul>
 
-
-
-<h3 id="stdarraytyp-rozmiar-kontener-o-stałym-rozmiarze"><code>std::array&lt;typ, rozmiar&gt;</code> - kontener o stałym rozmiarze</h3>
+<h3 id="kontener-o-stałym-rozmiarze-c11-stdarraytyp-rozmiar">Kontener o stałym rozmiarze (C++11) - <code>std::array&lt;typ, rozmiar&gt;</code></h3>
 
 <ul>
 <li>wymaga dołączenia biblioteki <code>&lt;array&gt;</code></li>
 <li>przykładowa definicja <code>std::array&lt;int, 3&gt; tab = {1,2,3};</code></li>
-<li>pojedynczy element można otrzymać na dwa sposoby: metodą <code>at()</code> - <code>std::cout &lt;&lt; tab.at(2);</code> lub operatorem <code>[]</code> - <code>std::cout &lt;&lt; tab[2];</code>, tylko metoda <code>at()</code> sprawdza czy pożądany indeks faktycznie znajduje się w kontenerze. jeżeli nie - rzuca wyjątek <code>std::out_of_range</code></li>
+<li>pojedynczy element można otrzymać na dwa sposoby: metodą <code>at()</code> - <code>std::cout &lt;&lt; tab.at(2);</code> lub operatorem <code>[]</code> - <code>std::cout &lt;&lt; tab[2];</code>, tylko metoda <code>at()</code> sprawdza czy pożądany indeks faktycznie znajduje się w granicach kontenera. jeżeli nie - rzuca wyjątek <code>std::out_of_range</code></li>
 </ul>
 
-<h3 id="stdvectortyp-kontener-o-zmiennym-rozmiarze"><code>std::vector&lt;typ&gt;</code> - kontener o zmiennym rozmiarze</h3>
+<h3 id="kontener-o-zmiennym-rozmiarze-stdvectortyp">Kontener o zmiennym rozmiarze - <code>std::vector&lt;typ&gt;</code></h3>
 
 <ul>
 <li>wymaga dołączenia biblioteki <code>&lt;vector&gt;</code></li>
@@ -85,6 +85,8 @@ Zmienna może mieć kilka deklaracji ale tylko jedną definicję!</p>
 <li>można sprawdzić jego rozmiar metodą <code>size()</code> - <code>std::cout &lt;&lt; vec.size();</code></li>
 <li>pojedynczy element można otrzymać na dwa sposoby: metodą <code>at()</code> - <code>std::cout &lt;&lt; vec.at(2);</code> lub operatorem <code>[]</code> - <code>std::cout &lt;&lt; vec[2];</code>, tylko metoda <code>at()</code> sprawdza czy pożądany indeks faktycznie znajduje się w kontenerze. jeżeli nie - rzuca wyjątek <code>std::out_of_range</code></li>
 </ul>
+
+
 
 <h2 id="tablice">Tablice</h2>
 
@@ -229,8 +231,6 @@ int main()
 
 <p>Warunek jest fałszywy jeżeli wartość liczbowa wyrażenia to zero, a prawdziwy dla każdej innej wartości. Wyrażenie jest obliczane zawsze od lewej strony i tylko tak długo jak warunek nie jest fałszywy tzn. </p>
 
-
-
 <pre class="prettyprint"><code class="language-C++ hljs r"><span class="hljs-keyword">if</span>(a==<span class="hljs-number">0</span> || i++ || j++ || k++)
 {
     //<span class="hljs-keyword">...</span>
@@ -257,9 +257,11 @@ Instrukcja 2 wykona się po każdym przebiegu pętlil; zazwyczaj inkrementuje si
 
 
 
-<h2 id="for-oparty-na-zbiorze-range-based-for-loop">for oparty na zbiorze (range-based for loop)</h2>
+<h2 id="for-oparty-na-zbiorze-range-based-for-loop-c11">for oparty na zbiorze (range-based for loop) (C++11)</h2>
 
 <p>Składnia:</p>
+
+
 
 <pre class="prettyprint"><code class="language-C++ hljs ruby"><span class="hljs-keyword">for</span>(auto element <span class="hljs-symbol">:</span> zbiór)
 {
@@ -267,6 +269,8 @@ Instrukcja 2 wykona się po każdym przebiegu pętlil; zazwyczaj inkrementuje si
 }</code></pre>
 
 <p>Taką pętlę można stosować tylko na obiektach które są zbiorami, np. <code>std::vector</code>, <code>std::string</code>, <code>std::array</code> itd. Wykona się ona zawsze dokładnie tyle razy ile zbiór ma elementów, w każdym kolejnym przejściu <code>element</code> będzie innym elementem ze zbioru. Słowo kluczowe <code>auto</code> gwarantuje, że <code>element</code> będzie zmienną takiego typu, jakiego są elementy zbioru. </p>
+
+
 
 <h2 id="while">while</h2>
 
@@ -310,6 +314,18 @@ fin.open(<span class="hljs-string">"plik.txt"</span>);
 <span class="hljs-keyword">while</span>(warunek);</code></pre>
 
 <p>Warunek jest sprawdzany <strong>po</strong> każdym przebiegu pętli według takich samych zasad jak <code>if()</code>.</p>
+
+
+
+<h1 id="funkcje">Funkcje</h1>
+
+<blockquote>
+  <p>sekcja w budowie</p>
+</blockquote>
+
+<hr>
+
+
 
 <h1 id="wejściewyjście-konsoli-iostream">Wejście/wyjście konsoli - <code>&lt;iostream&gt;</code></h1>
 
@@ -504,6 +520,8 @@ plik &lt;&lt; <span class="hljs-string">"hello world!"</span> &lt;&lt; <span cla
 
 <p>gdzie T to <code>double</code>, <code>float</code>, lub <code>long double</code></p>
 
+
+
 <h1 id="manipulacja-wewy-iomanip">Manipulacja we/wy - <code>&lt;iomanip&gt;</code></h1>
 
 
@@ -586,13 +604,15 @@ plik &lt;&lt; <span class="hljs-string">"hello world!"</span> &lt;&lt; <span cla
 3.141590000</code></pre>
 </blockquote>
 
+
+
 <h1 id="funkcje-związane-z-czasem-ctime">Funkcje związane z czasem - <code>&lt;ctime&gt;</code></h1>
 
 
 
 <h4 id="ctime-jest-biblioteką-języka-c-i-jej-użycie-z-powodów-których-nie-rozumiem-jest-obecnie-nie-wskazane-jako-zastępstwo-powinno-się-korzystać-z-opisanej-niżej-biblioteki-chrono"><strong><code>ctime</code> jest biblioteką języka C, i jej użycie z powodów których nie rozumiem, jest obecnie nie wskazane. Jako zastępstwo powinno się korzystać z opisanej niżej biblioteki <code>chrono</code>.</strong></h4>
 
-<p><code>time(0)</code> - zwraca obecny czas jako liczbę sekund od 1 stycznia 1970, godziny 00:00</p>
+<p><code>time(0)</code> - zwraca obecny czas jako liczbę sekund od 1 stycznia 1970, godziny 00:00; funkcja ta zwraca obiekt <code>time_t</code>, który <em>zazwyczaj</em> jest typem <code>int</code>.</p>
 
 
 
@@ -625,7 +645,9 @@ plik &lt;&lt; <span class="hljs-string">"hello world!"</span> &lt;&lt; <span cla
   <pre class="prettyprint"><code class="language-C++ hljs ruby">auto current_time = <span class="hljs-symbol">std:</span><span class="hljs-symbol">:chrono</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:system_clock</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:now</span>();</code></pre>
 </blockquote>
 
-<h1 id="generowanie-liczb-pseudolosowych-random">Generowanie liczb pseudolosowych - <code>&lt;random&gt;</code></h1>
+
+
+<h1 id="generowanie-liczb-pseudolosowych-c11-random">Generowanie liczb pseudolosowych (C++11) - <code>&lt;random&gt;</code></h1>
 
 <blockquote>
   <p>sekcja w budowie</p>
@@ -634,6 +656,6 @@ plik &lt;&lt; <span class="hljs-string">"hello world!"</span> &lt;&lt; <span cla
 <hr>
 
 <blockquote>
-  <p>last update: 2017/11/27 - 00:03</p>
+  <p>last update: 2017/11/27 - 00:31</p>
 </blockquote></div></body>
 </html>
