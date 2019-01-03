@@ -14,6 +14,8 @@ pre {background-color: rgba(128,128,128,0.05);}
 </head>
 <body><div class="container"><h1 id="szkielet-kodu-w-c">Szkielet kodu w C++</h1>
 
+
+
 <pre class="prettyprint"><code class="language-C++ hljs vala"><span class="hljs-preprocessor">#include &lt;nazwa_biblioteki&gt;</span>
 
 <span class="hljs-keyword">int</span> main(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])
@@ -29,6 +31,8 @@ Można po bloku <code>#include</code>, a przed definicją <code>main()</code>, w
 Dyrektywa <code>using namespace</code> informuje kompilator, że jeżeli natrafi na nieznany identyfikator, powinien próbować go znaleźć w przestrzeni nazw <code>std</code>. <br>
 Analogicznie można dowolną inną przestrzeń nazw uczynić przeszukiwaną domyślnie.</p>
 
+
+
 <h1 id="podstawowe-typy-danych">Podstawowe typy danych</h1>
 
 <p>Deklaracja zmiennej: <br>
@@ -39,6 +43,8 @@ Definicja zmiennej; <br>
 Dany identyfikator nie może być zdefiniowany więcej niż raz in the same scope! (nie mam pomysłu jak przełożyć scope na polski)</p>
 
 <p>Przykłady:</p>
+
+
 
 <pre class="prettyprint"><code class="language-C++ hljs cpp"><span class="hljs-keyword">int</span> a; <span class="hljs-comment">// deklaracja zmiennej typu int o identyfikatorze a</span>
 <span class="hljs-comment">//int a; // blad - ponowna deklaracja zmiennej a</span>
@@ -57,6 +63,8 @@ Dany identyfikator nie może być zdefiniowany więcej niż raz in the same scop
 <span class="hljs-keyword">float</span> arr[<span class="hljs-number">10</span>]; <span class="hljs-comment">// deklaracja tablicy 10 zmiennych typu float, indeksy od 0 do 9</span>
 <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> word; <span class="hljs-comment">// deklaracja obiektu klasy std::string o identyfikatorze word</span></code></pre>
 
+
+
 <h2 id="typy">Typy</h2>
 
 <ul>
@@ -64,7 +72,7 @@ Dany identyfikator nie może być zdefiniowany więcej niż raz in the same scop
 <li><code>unsigned int</code> - zmienna całkowitoliczbowa o zakresie wartości od 0 do 4294967295</li>
 <li><code>long long int</code> - zmienna całkowitoliczbowa o zakresie wartości od -9223372036854775808 do 9223372036854775807</li>
 <li><code>float</code> - zmienna zmiennoprzecinkowa; obliczenia na zmiennych tego typu są niedokładne.</li>
-<li><code>double</code> - zmienna zmiennoprzecinkowa o zakresie wartości od <script type="math/tex" id="MathJax-Element-461">1.7\cdot e^{-308}</script> do <script type="math/tex" id="MathJax-Element-462">1.7\cdot e^{308}</script>; bezpieczniej jest używać <code>double</code> zamiast <code>float</code> ze względu na większą (podwójną) precyzję obliczeń; zachować najwyższą ostrożność przy operacjach logicznych oraz przy używaniu jako warunków w instrukcjach sterujących, gdyż zmienne typu <code>float</code> i <code>double</code> mogą dawać niedokładne wyniki, np. <code>sqrt(4) == 2</code> może dać wynik <code>false</code>. <code>double</code> jest domyślnym typem zmiennoprzecinkowym w C++, więc wszystkie stałe dosłowne w kodzie będą własnie tego typu.</li>
+<li><code>double</code> - zmienna zmiennoprzecinkowa o zakresie wartości od <script type="math/tex" id="MathJax-Element-28">1.7\cdot e^{-308}</script> do <script type="math/tex" id="MathJax-Element-29">1.7\cdot e^{308}</script>; bezpieczniej jest używać <code>double</code> zamiast <code>float</code> ze względu na większą (podwójną) precyzję obliczeń; zachować najwyższą ostrożność przy operacjach logicznych oraz przy używaniu jako warunków w instrukcjach sterujących, gdyż zmienne typu <code>float</code> i <code>double</code> mogą dawać niedokładne wyniki, np. <code>sqrt(4) == 2</code> może dać wynik <code>false</code>. <code>double</code> jest domyślnym typem zmiennoprzecinkowym w C++, więc wszystkie stałe dosłowne w kodzie będą własnie tego typu.</li>
 <li><code>char</code> - zmienna znakowa; zawiera wartości z zakresu od -128 do 127; te wartości są zazwyczaj traktowane jako znaki w kodzie ASCII; zachować ostrożność przy porównywaniu/przypisywaniu!! wartość do takiej zmiennej przypisujemy w pojedynczych apostrofach <code>char znak = 'b';</code> lub jako liczbę <code>char znak = 36;</code> (znak $ ma kod 36), ale nie w cudzysłowach.</li>
 <li><code>bool</code> - zmienna true/false; może zawierać tylko 0 lub 1; przy porównywaniu lub przypisaniu można użyć słów kluczowych <code>true</code> i <code>false</code></li>
 <li>C-string - nie jest de facto typem, ale często jest tak traktowany. C-string jest tablicą <code>char</code>-ów zakończoną znakiem NULL (kod 0). <code>char znak = "b";</code> nie jest poprawne ponieważ <code>"b"</code> jest własnie C-stringiem - tablicą <strong>dwóch</strong> <code>char</code>-ów. W tej tablicy w komórce 0 jest znak ‘b’ a w komórce 1 znak NULL. Pochodzą z języka C i operować na nich można funkcjami z biblioteki <code>&lt;cstring&gt;</code>, ich użycie w C++ nie jest wskazane ze względu na istnienie klasy <code>std::string</code>.</li>
@@ -72,6 +80,8 @@ Dany identyfikator nie może być zdefiniowany więcej niż raz in the same scop
 
 <p>Każdy typ (ale nie klase) można poprzedzić słowem <code>unsigned</code> uzyskując zakres <code>0 do n</code> zamiast <code>-n/2 do n/2-1</code>. Przeciwne do niego jest słowo kluczowe <code>signed</code>. <br>
 Podane tu rozmiary typów są przykładowe, niektóre kompilatory używają innej ilości pamięci dla tych typów.</p>
+
+
 
 <h2 id="klasy">Klasy</h2>
 
@@ -110,6 +120,14 @@ Podane tu rozmiary typów są przykładowe, niektóre kompilatory używają inne
 
 
 
+<h3 id="strumień-łańcuch-stdstringstream">Strumień-łańcuch - <code>std::stringstream</code></h3>
+
+<blockquote>
+  <p>sekcja w budowie</p>
+</blockquote>
+
+
+
 <h2 id="tablice">Tablice</h2>
 
 <p>Tablice w C++ tworzymy dodając do nazwy zmiennej jej rozmiar w kwadratowych nawiasach.</p>
@@ -137,6 +155,8 @@ Podane tu rozmiary typów są przykładowe, niektóre kompilatory używają inne
 <li>123 do 126 - więcej więcej więcej interpunkcji</li>
 <li>127 - znak(klawisz) delete</li>
 </ul>
+
+
 
 <h1 id="wskaźniki-i-dynamiczne-zarządzanie-pamięcią">Wskaźniki i dynamiczne zarządzanie pamięcią</h1>
 
@@ -213,9 +233,13 @@ int main()
 
 <p>Jeżeli używamy wskaźnika na strukturę, operator kropki zastępujemy strzałką <code>-&gt;</code></p>
 
+
+
 <h1 id="logika">Logika</h1>
 
 <p>Praktycznie każde wyrażenie w C++ da się ocenić jako wyrażenie logiczne, co bywa mylące. Jest to spowodowane dwoma faktami: tym że każdy operator w C++ zwraca jakąś wartość, oraz tym że kompilator oceni każdą liczbę jako wyrażenie logiczne bez mrugnięcia okiem. Co za tym idzie:</p>
+
+
 
 <pre class="prettyprint"><code class="language-C++ hljs cs"><span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>) <span class="hljs-comment">//true jest jedoznaczne z 1 więc jest prawdziwe - petla nieskonczona</span>
     ;
@@ -233,16 +257,18 @@ int main()
 <ul>
 <li><code>operator+</code> - dwuargumentowy, do pierwszego argumentu dodaje drugi i zwraca nową wartość pierwszego</li>
 <li><code>operator-</code>, <code>operator-*</code> oraz <code>operator/</code>- dwuargumentowe, działają analogicznie jak <code>operator+</code> i zwracają nową wartość pierwszego argumentu</li>
-<li><code>operator=</code> - dwuargumentowy, pierwszy musi być tzw. l-value czyli w jakiejś postaci miejscem w pamięci, np. nazwą zmiennej, drugi może być czymkolwiek. Przypisuje do podanej komórki pamięci wartość drugiego argumentu i zwraca tą właśnie wartość, więc <code>if(a = 5)</code> jest zawsze prawdziwe - to po prostu <code>if(5)</code></li>
-<li><code>operator+=</code> - dwuargumentowy, podobny do <code>operator=</code> ale dodaje drugi argument do tego co juz jest w pierwszym. Zwraca nową wartość pierwszego.</li>
-<li><code>operator-=</code> - dwuargumentowy, analogiczny do <code>operator+=</code> tylko odejmuje.</li>
+<li><code>operator=</code> - dwuargumentowy, pierwszy argument musi być tzw. l-value czyli w jakiejś postaci miejscem w pamięci, np. nazwą zmiennej, drugi może być czymkolwiek. Przypisuje do podanej komórki pamięci wartość drugiego argumentu i zwraca tą właśnie wartość, więc <code>if(a = 5)</code> jest zawsze prawdziwe - to po prostu <code>if(5)</code></li>
+<li><code>operator+=</code> oraz <code>operator-=</code> - dwuargumentowy, podobny do <code>operator=</code> ale dodaje/odejmuje drugi argument do tego co juz jest w pierwszym. Zwraca nową wartość pierwszego.</li>
 <li><code>operator==</code> - dwuargumentowy, porównuje ze sobą oba argumenty i jeśli są równoważne zwraca <code>true</code> w przeciwnym razie <code>false</code>. Argumenty te nie zawsze są liczbami - mogą być jakimś wyrażeniem np. <code>if( (a = 5) == (a = 10) )</code> najpierw wykona te dwa przypisania by poznać ich wartość a dopiero potem porówna to co one zwrócą - czyli 5 z 10</li>
-<li><code>operator&lt;=</code>, <code>operator&gt;=</code>, <code>operator&lt;</code> oraz <code>operator&gt;</code> - dwuargumentowe, wykonują arytmetyczne porównanie i zwracają wartość <code>true</code> lub <code>false</code></li>
-<li><code>operator&amp;&amp;</code> oraz <code>operator||</code> - logiczne OR oraz AND, obowiązują te same zasady co dla <code>operator==</code>, zwracają wartość <code>true</code> lub <code>false</code></li>
+<li><code>operator&lt;=</code>, <code>operator&gt;=</code>, <code>operator&lt;</code> oraz <code>operator&gt;</code> - dwuargumentowe, wykonują arytmetyczne porównanie i zwracają wartość <code>true</code> lub <code>false</code>, argumenty wciąż mogą być dowolnymi wyrażeniami</li>
+<li><code>operator&amp;&amp;</code> oraz <code>operator||</code> - dwuargumentowe, logiczne OR oraz AND, obowiązują te same zasady co dla <code>operator==</code>, zwracają wartość <code>true</code> lub <code>false</code></li>
 <li><code>operator&amp;</code> oraz <code>operator|</code> - dwuargumentowe, bitowe OR oraz AND, zwracają wartość pierwszego argumentu po wykonaniu działania. Nie mylić z logicznym OR i AND! <code>if(2 &amp; 4)</code> jest fałszywe bo <code>2 &amp; 4</code> zwraca 0, a <code>2 &amp;&amp; 4</code> zwraca <code>true</code>. <code>if(2 | 4)</code> jest prawdziwe bo <code>2 | 4</code> zwraca 6, podczas <code>2 || 4</code> zwraca <code>true</code> (1).</li>
 <li><code>operator^</code> - dwuargumentowy, bitowy XOR, nie ma odpowiednika logicznego. Zwraca liczbę.</li>
-<li><code>operator&amp;&amp;</code></li>
 </ul>
+
+<blockquote>
+  <p>sekcja w budowie</p>
+</blockquote>
 
 <h1 id="instrukcje-sterujące">Instrukcje sterujące</h1>
 
@@ -365,6 +391,8 @@ fin.open(<span class="hljs-string">"plik.txt"</span>);
 <span class="hljs-keyword">while</span>(warunek);</code></pre>
 
 <p>Warunek jest sprawdzany <strong>po</strong> każdym przebiegu pętli według takich samych zasad jak <code>if()</code>.</p>
+
+
 
 <h1 id="funkcje">Funkcje</h1>
 
@@ -662,6 +690,19 @@ plik &lt;&lt; <span class="hljs-string">"hello world!"</span> &lt;&lt; <span cla
 <h4 id="ctime-jest-biblioteką-języka-c-i-jej-użycie-z-powodów-których-nie-rozumiem-jest-obecnie-nie-wskazane-jako-zastępstwo-powinno-się-korzystać-z-opisanej-niżej-biblioteki-chrono"><strong><code>ctime</code> jest biblioteką języka C, i jej użycie z powodów których nie rozumiem, jest obecnie nie wskazane. Jako zastępstwo powinno się korzystać z opisanej niżej biblioteki <code>chrono</code>.</strong></h4>
 
 <p><code>time(0)</code> - zwraca obecny czas jako liczbę sekund od 1 stycznia 1970, godziny 00:00; funkcja ta zwraca obiekt <code>time_t</code>, który <em>zazwyczaj</em> jest typem <code>int</code>.</p>
+
+
+
+<h1 id="różne-inne-funkcje-cstdlib">Różne inne funkcje - <code>&lt;cstdlib&gt;</code></h1>
+
+
+
+<h4 id="cstdlib-jest-biblioteką-języka-c-i-jej-użycie-z-powodów-których-nie-rozumiem-jest-obecnie-nie-wskazane-jako-zastępstwo-powinno-się-korzystać-z-funkcji-z-bibliotek-nie-zaczynających-się-od-c-na-przykład-random"><strong><code>cstdlib</code> jest biblioteką języka C, i jej użycie z powodów których nie rozumiem, jest obecnie nie wskazane. Jako zastępstwo powinno się korzystać z funkcji z bibliotek nie zaczynających się od <code>c</code>, na przykład <code>&lt;random&gt;</code>.</strong></h4>
+
+<ul>
+<li><code>rand()</code> - zwraca wygenerowaną przez silnik pseudolosowy liczbę. Jeśli nie <em>zaseedujemy</em> silnika to zawsze bedą to te same liczby.</li>
+<li><code>srand(unsigned int seed)</code> - seeduje silnik pseudolosowy wartością podanej zmiennej. Popularnie używany jako <code>srand(time(0))</code> ale wartości będą “słabo” losowe. Metoda niewskazana do kryptografii.</li>
+</ul>
 
 
 
